@@ -1,9 +1,9 @@
 const classmates = []
+const classmatesCommits = []
 const search = document.getElementById('search').addEventListener('click', () => {
 	fetchData(classmates)
 })
 async function fetchData(classmates) {
-	const classmatesCommits = []
 	await fetch(`https://api.github.com/repos/cmda-minor-web/web-app-from-scratch-1920/forks`)
 		.then(response => {
 			return response.json()
@@ -13,18 +13,21 @@ async function fetchData(classmates) {
 				constructClassmateObjects(entry)
 			})
 		})
-	await classmates.forEach(classmate => {
-		const {gitusername, repository} = classmate
-		fetch(`https://api.github.com/repos/${gitusername}/${repository}/commits?author=${gitusername}`)
-			.then(response => {
-				return response.json()
-			})
-			.then(jsonData => {
-				classmate.commits = jsonData
-				classmatesCommits.push(classmate)
-				console.log(classmatesCommits)
-			})
-	})
+	const getcommits = async () => {
+		await asyncForEach(classmates, async (entry) => {
+			const {gitusername,repository} = entry
+			await fetch(`https://api.github.com/repos/${gitusername}/${repository}/commits?author=${gitusername}`)
+				.then(response => {
+					return response.json()
+				})
+				.then(jsonData => {
+					entry.commits = jsonData
+					classmatesCommits.push(entry)
+				})
+		})
+	}
+	await getcommits()
+	constructHtml(classmatesCommits)
 }
 
 function constructClassmateObjects(json) {
@@ -32,4 +35,20 @@ function constructClassmateObjects(json) {
 	student.gitusername = json.owner.login
 	student.repository = json.name
 	classmates.push(student)
+}
+
+function constructHtml(classmatesCommits) {
+	const htmlcontainer = document.querySelector('.student-commits')
+	classmatesCommits.forEach(classmate => {
+		classmate.commits.forEach(commit => {
+		})
+		console.log(classmate)
+	})
+	console.log(htmlcontainer)
+}
+
+async function asyncForEach(array, callback) {
+	for (let index = 0; index < array.length; index++) {
+    	await callback(array[index], index, array);
+  	}
 }
