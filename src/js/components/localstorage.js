@@ -7,6 +7,7 @@ export function readStorage(storageItemKey) {
 }
 
 export function addLocalstorageEntry(item,storagelocation) {
+	console.log(JSON.stringify(item))
 	localStorage.setItem(storagelocation, JSON.stringify(item))
 }
 

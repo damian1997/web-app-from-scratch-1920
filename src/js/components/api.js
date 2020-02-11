@@ -50,6 +50,7 @@ export async function getIssues(baseUrl, users) {
 			.catch(err => {
 				console.log('Error ', err)
 			})
+		return userWithIssues
 	})
 	const promisedData = Promise.all(usersWithIssues)
 	return promisedData
