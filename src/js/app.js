@@ -5,9 +5,9 @@ import { cleanGithubData } from './components/data'
 init()
 async function init() {
 	const yetToBeDeterminedCheck = false 
-		clearStorage('forkers')
-	if(readStorage('forkers') && yetToBeDeterminedCheck == false) {
-		clearStorage('forkers')
+	if(readStorage('forkersdata') && yetToBeDeterminedCheck == false) {
+		console.log('you are in if ');
+		console.log(readStorage('forkersdata'));
 	} else {
 		const apiSettings = {
 			baseUrl: 'https://api.github.com/repos',
@@ -21,9 +21,7 @@ async function init() {
 			.then(async (entrys) => {
 				return await getIssues(apiSettings.baseUrl,entrys)
 			})
-		console.log(forkers);
-		//const forkersCommits = await getCommits(apiSettings.baseUrl,forkers)
-		//const forkersCommitsIssues = await getIssues(apiSettings.baseUrl,forkersCommits)
-		//addLocalstorageEntry(forkers, 'forkers')
+		const cleanedForkers = await cleanGithubData(forkers)
+		addLocalstorageEntry(forkers,'forkersdata')
 	}
 }
