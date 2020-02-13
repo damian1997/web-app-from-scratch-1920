@@ -1,8 +1,8 @@
 # Web app from scratch - CMD Minor 1920
 Repository for the Web app from scratch course.
 
-[Description](#description)
-[UI Design](#ui-design)
+* [Description](#description)
+* [UI Design](#ui-design)
 
 ## Description
 With this application you can get insight into who has forked your repository and if they have done any work on your project.
