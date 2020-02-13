@@ -27,6 +27,10 @@ To generate production files type the following into your terminal
 npm run prod
 ```
 
+### Packages
+This project makes use of the following packages and technologies:
+* [Webpack](https://webpack.js.org/)
+
 ## UI Design
 
 ### Desktop
