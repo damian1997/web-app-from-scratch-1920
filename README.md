@@ -5,6 +5,9 @@ Repository for the Web app from scratch course.
 * [Installing](#installing)
 	* [Packages](#packages)
 * [Api](#api)
+* [How it works](#how-it-works)
+	* [Actor diagram](#actor-diagram)
+	* [Interaction diagram](#interaction-diagram)
 * [UI Design](#ui-design)
 
 ## Description
@@ -281,6 +284,13 @@ After fetching everyone who forked the repo we go and fetch all the commits they
  </details>
 
  ***
+
+## How it works
+### Actor diagram
+<img src="./src/images/github/actordiagram-wafs.jpg">
+
+### Flow diagram
+<img src="./src/images/github/flowdiagram-wafs.jpg">
 
 ## UI Design
 
