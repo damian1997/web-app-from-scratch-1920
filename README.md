@@ -46,11 +46,29 @@ This project currentcly fetched data with unauthenticates requests.
 
 #### Fetch forkers output
 When fetching forkers the api outputs the following
+
 <details>
-<summary>Show output</summary>
-```
-this is code block???
-```
+ <summary>Show output</summary>
+
+ ```javascript
+
+ {
+  "count": 0,
+  "next": "http://example.com",
+  "previous": "http://example.com",
+  "results": [
+    {
+    "id": 0,
+    "name": "string",
+    "slug": "string",
+    "games_count": 0,
+    "image_background": "http://example.com"
+    }
+  ]
+}
+
+ ```
+
 </details>
 
 ## UI Design
