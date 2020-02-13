@@ -9,6 +9,16 @@ With this application you can lookup who in your company is creating the most is
 
 ## UI Design
 
+### Desktop
+
+Home page when launching the application
+
+<img src="./src/images/github/desktopdesign-overview.png">
+
+Commit detail page
+
+<img src="./src/i"
+
 ### Mobile
 
 Home page when launching the application
