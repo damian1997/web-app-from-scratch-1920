@@ -34,7 +34,7 @@ This project makes use of the following packages and technologies:
 
 ## Api
 This project makes use of the following Api
-*[Github Api V3](https://developer.github.com/v3/)
+* [Github Api V3](https://developer.github.com/v3/)
 
 ## UI Design
 
