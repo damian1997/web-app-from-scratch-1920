@@ -17,7 +17,7 @@ Home page when launching the application
 
 Commit detail page
 
-<img src="./src/images/github/desktopdesign-detail.png"
+<img src="./src/images/github/desktopdesign-detail.png">
 
 ### Mobile
 
