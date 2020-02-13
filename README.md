@@ -47,6 +47,8 @@ This project currentcly fetched data with unauthenticates requests.
 #### Fetch forkers output
 When fetching forkers the api outputs the following
 
+***
+
 <details>
  <summary>Show output</summary>
 
