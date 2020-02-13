@@ -176,8 +176,102 @@ When fetching forkers the api outputs the following
 ]
 
  ```
-
 </details>
+
+<details>
+ <summary>Show output</summary>
+
+ ```json
+
+ {
+    "gitusername": "meessour",
+    "repository": "web-app-from-scratch-1920",
+    "commits": [
+        {
+            "sha": "73cac56178a0549a5a2d4f29f001f99a13ffb577",
+            "node_id": "MDY6Q29tbWl0MjM4MDMxNDU1OjczY2FjNTYxNzhhMDU0OWE1YTJkNGYyOWYwMDFmOTlhMTNmZmI1Nzc=",
+            "commit": {
+                "author": {
+                    "name": "msourHvA",
+                    "email": "meessour@gmail.com",
+                    "date": "2020-02-11T19:29:58Z"
+                },
+                "committer": {
+                    "name": "msourHvA",
+                    "email": "meessour@gmail.com",
+                    "date": "2020-02-11T19:29:58Z"
+                },
+                "message": "Added routing. Added show songs of artist on click. Fixed visuals",
+                "tree": {
+                    "sha": "77e8eec5096cca51029ad7bcf44d96e4d1f7f5ae",
+                    "url": "https://api.github.com/repos/meessour/web-app-from-scratch-1920/git/trees/77e8eec5096cca51029ad7bcf44d96e4d1f7f5ae"
+                },
+                "url": "https://api.github.com/repos/meessour/web-app-from-scratch-1920/git/commits/73cac56178a0549a5a2d4f29f001f99a13ffb577",
+                "comment_count": 0,
+                "verification": {
+                    "verified": false,
+                    "reason": "unsigned",
+                    "signature": null,
+                    "payload": null
+                }
+            },
+            "url": "https://api.github.com/repos/meessour/web-app-from-scratch-1920/commits/73cac56178a0549a5a2d4f29f001f99a13ffb577",
+            "html_url": "https://github.com/meessour/web-app-from-scratch-1920/commit/73cac56178a0549a5a2d4f29f001f99a13ffb577",
+            "comments_url": "https://api.github.com/repos/meessour/web-app-from-scratch-1920/commits/73cac56178a0549a5a2d4f29f001f99a13ffb577/comments",
+            "author": {
+                "login": "meessour",
+                "id": 32935392,
+                "node_id": "MDQ6VXNlcjMyOTM1Mzky",
+                "avatar_url": "https://avatars3.githubusercontent.com/u/32935392?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/meessour",
+                "html_url": "https://github.com/meessour",
+                "followers_url": "https://api.github.com/users/meessour/followers",
+                "following_url": "https://api.github.com/users/meessour/following{/other_user}",
+                "gists_url": "https://api.github.com/users/meessour/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/meessour/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/meessour/subscriptions",
+                "organizations_url": "https://api.github.com/users/meessour/orgs",
+                "repos_url": "https://api.github.com/users/meessour/repos",
+                "events_url": "https://api.github.com/users/meessour/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/meessour/received_events",
+                "type": "User",
+                "site_admin": false
+            },
+            "committer": {
+                "login": "meessour",
+                "id": 32935392,
+                "node_id": "MDQ6VXNlcjMyOTM1Mzky",
+                "avatar_url": "https://avatars3.githubusercontent.com/u/32935392?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/meessour",
+                "html_url": "https://github.com/meessour",
+                "followers_url": "https://api.github.com/users/meessour/followers",
+                "following_url": "https://api.github.com/users/meessour/following{/other_user}",
+                "gists_url": "https://api.github.com/users/meessour/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/meessour/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/meessour/subscriptions",
+                "organizations_url": "https://api.github.com/users/meessour/orgs",
+                "repos_url": "https://api.github.com/users/meessour/repos",
+                "events_url": "https://api.github.com/users/meessour/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/meessour/received_events",
+                "type": "User",
+                "site_admin": false
+            },
+            "parents": [
+                {
+                    "sha": "a90db6d862f4d58b444e251aa00671d364d716ba",
+                    "url": "https://api.github.com/repos/meessour/web-app-from-scratch-1920/commits/a90db6d862f4d58b444e251aa00671d364d716ba",
+                    "html_url": "https://github.com/meessour/web-app-from-scratch-1920/commit/a90db6d862f4d58b444e251aa00671d364d716ba"
+                }
+            ]
+		},
+    ]
+}
+
+ ```
+
+ </details>
 
 ## UI Design
 

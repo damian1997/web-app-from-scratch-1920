@@ -21,6 +21,7 @@ async function init() {
 		.then(async (entrys) => {
 			return await getCommits(apiSettings.baseUrl,entrys)
 		})
+	console.log(JSON.stringify(forkers[0],null,4));
 		//.then(async (entrys) => {
 			//return await getIssues(apiSettings.baseUrl,entrys)
 		//})
