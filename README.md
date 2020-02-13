@@ -48,11 +48,9 @@ This project currentcly fetched data with unauthenticates requests.
 When fetching forkers the api outputs the following
 <details>
 <summary>I could use some help...</summary>
-<p>
-```
+```json
 [{"gitusername":"meessour","repository":"web-app-from-scratch-1920"},{"gitusername":"DanielvandeVelde","repository":"web-app-from-scratch-1920"},{"gitusername":"Jaouad90","repository":"GarbageScraper"},{"gitusername":"TimTerwijn","repository":"web-app-from-scratch-1920"},{"gitusername":"LarsBreuren","repository":"web-app-from-scratch-1920"},{"gitusername":"heralt","repository":"web-app-from-scratch-1920"},{"gitusername":"lennartdeknikker","repository":"web-app-from-scratch-1920"},{"gitusername":"thijsbordewijk","repository":"web-app-from-scratch-1920"},{"gitusername":"Mokerstier","repository":"web-app-from-scratch-1920"},{"gitusername":"randy554","repository":"web-app-from-scratch-1920"},{"gitusername":"Zeijls","repository":"web-app-from-scratch-1920"},{"gitusername":"TomasS666","repository":"web-app-from-scratch-1920"},{"gitusername":"MohamadAlGhorani","repository":"web-app-from-scratch-1920"},{"gitusername":"mordock","repository":"web-app-from-scratch-1920"},{"gitusername":"ReiniervanLimpt","repository":"web-app-from-scratch-1920"},{"gitusername":"Coenmathijssen","repository":"web-app-from-scratch-1920"},{"gitusername":"charder001","repository":"web-app-from-scratch-1920"},{"gitusername":"jenniferslagt","repository":"web-app-from-scratch-1920"},{"gitusername":"Ramon96","repository":"web-app-from-scratch-1920"},{"gitusername":"iSirThijs","repository":"web-app-from-scratch-1920"},{"gitusername":"marissaverdonck","repository":"web-app-from-scratch-1920"},{"gitusername":"martendebruijn","repository":"web-app-from-scratch-1920"},{"gitusername":"CountNick","repository":"web-app-from-scratch-1920"},{"gitusername":"Stanargy","repository":"web-app-from-scratch-1920"},{"gitusername":"qiubee","repository":"web-app-from-scratch-1920"},{"gitusername":"robert-hoekstra","repository":"web-app-from-scratch-1920"},{"gitusername":"Aidan98","repository":"web-app-from-scratch-1920"},{"gitusername":"tnanhekhan","repository":"web-app-from-scratch-1920"},{"gitusername":"gijslaarman","repository":"web-app-from-scratch-1920"},{"gitusername":"MonikaaS","repository":"web-app-from-scratch-1920"}]
 ```
-</p>
 </details>
 
 ## UI Design
