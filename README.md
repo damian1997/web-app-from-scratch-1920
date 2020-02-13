@@ -2,9 +2,15 @@
 Repository for the Web app from scratch course.
 
 [Description](#description)
+[UI Design](#ui-design)
 
 ## Description
 With this application you can lookup who in your company is creating the most issue's for your projects. Search can be done on user level and on repository level.
+
+## UI Design
+
+### Mobile
+<img src="./src/images/github/mobiledesign-wafs.png">
 <!-- Add a link to your live demo in Github Pages 🌐-->
 
 <!-- ☝️ replace this description with a description of your own work -->
