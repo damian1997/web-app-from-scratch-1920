@@ -12,9 +12,11 @@ With this application you can lookup who in your company is creating the most is
 ### Mobile
 
 Home page when launching the application
+
 <img src="./src/images/github/mobiledesign-wafs.png">
 
 Commit detail page
+
 <img src="./src/images/github/mobiledesign-detailpage.png">
 <!-- Add a link to your live demo in Github Pages 🌐-->
 
