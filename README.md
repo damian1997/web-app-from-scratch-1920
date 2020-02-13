@@ -178,6 +178,9 @@ When fetching forkers the api outputs the following
  ```
 </details>
 
+#### Fetch commits for every forker
+After fetching everyone who forked the repo we go and fetch all the commits they have made on their repository, below is an example output for 1 of the forkers.
+
 <details>
  <summary>Show output</summary>
 
