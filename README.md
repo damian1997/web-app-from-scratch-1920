@@ -44,10 +44,10 @@ For unauthenticated requests, the rate limit allows for up to 60 requests per ho
 #### Used authentication
 This project currentcly fetched data with unauthenticates requests.
 
+***
+
 #### Fetch forkers output
 When fetching forkers the api outputs the following
-
-***
 
 <details>
  <summary>Show output</summary>
