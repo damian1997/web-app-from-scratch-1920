@@ -5,7 +5,25 @@ Repository for the Web app from scratch course.
 [UI Design](#ui-design)
 
 ## Description
-With this application you can lookup who in your company is creating the most issue's for your projects. Search can be done on user level and on repository level.
+With this application you can get insight into who has forked your repository and if they have done any work on your project.
+
+## Installing
+
+To install this application localy type the following into your terminal
+```
+git clone https://github.com/damian1997/web-app-from-scratch-1920.git
+npm install
+```
+
+To serve the application to your browser type the following into your terminal
+```
+npm run dev
+```
+
+To generate production files type the following into your terminal
+```
+npm run prod
+```
 
 ## UI Design
 
