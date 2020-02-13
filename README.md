@@ -3,7 +3,7 @@ Repository for the Web app from scratch course.
 
 * [Description](#description)
 * [Installing](#installing)
-	1.[Packages](#packages)
+	* [Packages](#packages)
 * [UI Design](#ui-design)
 
 ## Description
