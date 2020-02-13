@@ -4,6 +4,7 @@ Repository for the Web app from scratch course.
 * [Description](#description)
 * [Installing](#installing)
 	* [Packages](#packages)
+* [Api](#api)
 * [UI Design](#ui-design)
 
 ## Description
@@ -30,6 +31,10 @@ npm run prod
 ### Packages
 This project makes use of the following packages and technologies:
 * [Webpack](https://webpack.js.org/)
+
+## Api
+This project makes use of the following Api
+*[Github Api V3](https://developer.github.com/v3/)
 
 ## UI Design
 
