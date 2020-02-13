@@ -9,6 +9,7 @@ Repository for the Web app from scratch course.
 	* [Actor diagram](#actor-diagram)
 	* [Interaction diagram](#interaction-diagram)
 * [UI Design](#ui-design)
+* [License](#license)
 
 ## Description
 With this application you can get insight into who has forked your repository and if they have done any work on your project.
