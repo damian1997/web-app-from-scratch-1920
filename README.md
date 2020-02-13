@@ -36,6 +36,9 @@ This project makes use of the following packages and technologies:
 This project makes use of the following Api
 * [Github Api V3](https://developer.github.com/v3/)
 
+### Rate limiting
+For API requests using Basic Authentication or OAuth, you can make up to 5000 requests per hour. Authenticated requests are associated with the authenticated user, regardless of whether [Basic authentication](For API requests using Basic Authentication or OAuth, you can make up to 5000 requests per hour. Authenticated requests are associated with the authenticated user, regardless of whether Basic Authentication or an OAuth token was used.) or an [OAuth](https://developer.github.com/v3/#oauth2-token-sent-in-a-header) was used.
+
 ## UI Design
 
 ### Desktop
