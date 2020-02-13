@@ -13,6 +13,7 @@ export async function getForkers(baseUrl,forkedRepoOwner,forkedRepo) {
 			console.log('Error ', err)
 		})
 	const promisedData = await Promise.all(data)
+	console.log(JSON.stringify(promisedData));
 	return promisedData
 }
 
