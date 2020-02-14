@@ -319,5 +319,5 @@ Commit detail page
 * [MDN](https://developer.mozilla.org/nl/)
 * [Github Api documentation](https://developer.github.com/v3/)
 
-## Licensee
+## License
 [MIT License](https://github.com/damian1997/web-app-from-scratch-1920/blob/master/LICENSE) [Damian1997](https://github.com/damian1997)
