@@ -1,6 +1,8 @@
 # Web app from scratch - CMD Minor 1920
 Repository for the Web app from scratch course.
 
+[Demo](https://pensive-edison-bc4991.netlify.com/)
+
 * [Description](#description)
 * [Installing](#installing)
 	* [Packages](#packages)
