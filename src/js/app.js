@@ -3,12 +3,12 @@ import { readStorage, clearStorage, addLocalstorageEntry } from './components/lo
 import { cleanGithubData, sortCommits } from './components/data'
 import Routie from './libraries/routie'
 
-import createElement from './virtualdom/createElement';
-import render from './virtualdom/render'
-import mount from './virtualdom/mount'
-import diff from './virtualdom/diff'
+import Component from './components/baseComponent.mjs'
+import Overview from './components/overview.mjs'
 
-import forkerConstruct from './components/forkerConstruct'
+import { createVirtualElement, renderElementToHTML, renderComponent } from './virtualdom/virtualdom.mjs'
+//import diff from './virtualdom/diff'
+
 
 init()
 async function init() {
@@ -17,60 +17,40 @@ async function init() {
 		forkedRepoOwner: 'cmda-minor-web',
 		forkedRepo: 'web-app-from-scratch-1920'
 	}
+		
 	const forkers = await getForkers(apiSettings.baseUrl,apiSettings.forkedRepoOwner,apiSettings.forkedRepo)
 		.then(async (entrys) => {
 			return await getCommits(apiSettings.baseUrl,entrys)
 		})
-	console.log(JSON.stringify(forkers[0],null,4));
-		//.then(async (entrys) => {
-			//return await getIssues(apiSettings.baseUrl,entrys)
-		//})
+
 	const cleanedForkers = await cleanGithubData(forkers)
 		.then(async (entrys) => {
 			return await sortCommits(entrys)
 		})
 	
-
-	Routie({
-		// Default route	
-		'': function() {
-			const constructedForkerChildren = []
-			cleanedForkers.map(forker => {
-				constructedForkerChildren.push(forkerConstruct(forker))
-			})
-
-			const createVirtualApp = () => createElement('main', {
-				attrs: {
-					id: 'app',
-				},
+	class App extends Component {
+		createVirtualComponent() {
+			return createVirtualElement('section', {
 				children: [
-					createElement('section', {
-						attrs: {
-							class: 'forkers__overview'
-						},
-						children: constructedForkerChildren
-					})
-				],
-			});
-			let count = 0;
-			const virtualApp = createVirtualApp();
-			const $app = render(virtualApp);
-			let $rootElement = mount($app, document.getElementById('app'));
-
-			//setInterval(() => {
-				//count++;
-				//const virtualNewApp = createVirtualApp(count)
-				//const patch = diff(virtualApp, virtualNewApp)
-				
-				//$rootElement = patch($rootElement)
-				//console.log($rootElement);
-			//}, 1000);
-		},
-		'home': function() {
-			console.log('SUP HOME')
-		},
-		'about': function() {
-			console.log('Sup ABOUT')
+					createVirtualElement('input'),
+					createVirtualElement('h1', {children: ['textnode']}),
+					createVirtualElement(Overview)
+				]
+			})
 		}
-	})
+	}
+
+	renderComponent(new App(), document.querySelector('#app'))
+
+	//Routie({
+		//// Default route	
+		//'': function() {
+		//},
+		//'home': function() {
+			//console.log('SUP HOME')
+		//},
+		//'about': function() {
+			//console.log('Sup ABOUT')
+		//}
+	//})
 }
