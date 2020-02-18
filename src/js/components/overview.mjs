@@ -1,27 +1,19 @@
-import Component from './baseComponent.mjs'
-import { createVirtualElement } from '../virtualdom/virtualdom.mjs'
+import BaseComponent from './baseComponent.mjs'
+import { renderComponent, createVirtualElement } from '../virtualdom/virtualdom.mjs'
 
-export default class Overview extends Component {
+export default class Overview extends BaseComponent {
 	constructor(props) {
 		super(props)
 		this.props = props
-		this.state = {
-			list: [
-				'first', 'second', 'third', 'fourth', 'fifth'
-			]
-		}
-
-		this.timer = setInterval(_ => {
-			this.setState({
-				list: [...this.state.list, 'SoME More']
-			})
-		}, 1000)
 	}
+	
+	setForkers(forkers) {
+		this.state.forkers = forkers
+		renderComponent(this)
+	}
+
 	createVirtualComponent(props,state) {
 		return createVirtualElement('ul', {
-			children: [
-				...state.list.map(item => createVirtualElement('li', {children: [item]}))
-			]
 		})
 	}
 }

@@ -1,0 +1,48 @@
+header {
+	position: relative;
+	padding: 100px 20px 80px;
+	background: var(--primary-color);
+	&:before {
+		position: absolute;
+		top: -43%;
+		right: -50%;
+		width: 200%;
+		height: 200%;
+		content: '';
+		transform: rotate(45deg);
+		background: transparent center center no-repeat url(../images/githubflow.png);
+	}
+	> div {
+		position: relative;
+		z-index: 200;
+		section {
+			h1 {
+				margin-top: 0;
+				color: var(--white-color);
+			}
+			form {
+				button[type=submit] {
+					display: block;
+					width: 50%;
+					padding: 10px;
+					background: var(--white-color);
+					border-top: 1px solid var(--primary-color);
+					transition: 250ms ease-in-out;
+
+					&:hover {
+						border-top: 1px solid var(--white-color);
+						color: var(--white-color);
+						background: var(--primary-color);
+					}
+				}
+				input[type=search] {
+					display: block;
+					width: 100%;
+					padding: 10px;
+					border: none;
+					border-radius: 4px 4px 4px 0;
+				}
+			}
+		}
+	}
+}

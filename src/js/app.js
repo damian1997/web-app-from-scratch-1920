@@ -4,6 +4,7 @@ import { cleanGithubData, sortCommits } from './components/data'
 import Routie from './libraries/routie'
 
 import Component from './components/baseComponent.mjs'
+import Header from './components/header.mjs'
 import Overview from './components/overview.mjs'
 
 import { createVirtualElement, renderElementToHTML, renderComponent } from './virtualdom/virtualdom.mjs'
@@ -18,29 +19,28 @@ async function init() {
 		forkedRepo: 'web-app-from-scratch-1920'
 	}
 		
-	const forkers = await getForkers(apiSettings.baseUrl,apiSettings.forkedRepoOwner,apiSettings.forkedRepo)
-		.then(async (entrys) => {
-			return await getCommits(apiSettings.baseUrl,entrys)
-		})
+	//const forkers = await getForkers(apiSettings.baseUrl,apiSettings.forkedRepoOwner,apiSettings.forkedRepo)
+		//.then(async (entrys) => {
+			//return await getCommits(apiSettings.baseUrl,entrys)
+		//})
 
-	const cleanedForkers = await cleanGithubData(forkers)
-		.then(async (entrys) => {
-			return await sortCommits(entrys)
-		})
+	//const cleanedForkers = await cleanGithubData(forkers)
+		//.then(async (entrys) => {
+			//return await sortCommits(entrys)
+		//})
 	
 	class App extends Component {
 		createVirtualComponent() {
-			return createVirtualElement('section', {
+			return createVirtualElement('div', {
 				children: [
-					createVirtualElement('input'),
-					createVirtualElement('h1', {children: ['textnode']}),
+					createVirtualElement(Header),
 					createVirtualElement(Overview)
 				]
 			})
 		}
 	}
 
-	renderComponent(new App(), document.querySelector('#app'))
+	renderComponent(new App(), document.body)
 
 	//Routie({
 		//// Default route	

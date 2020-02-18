@@ -1,6 +1,6 @@
 import { renderComponent } from '../virtualdom/virtualdom.mjs'
 
-export default class Component {
+export default class BaseComponent {
 	constructor(props) {
 		this.props = props
 		this.state = {}

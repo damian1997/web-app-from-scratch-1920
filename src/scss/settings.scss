@@ -1,0 +1,35 @@
+:root {
+	--primary-color: #363636;
+	--white-color: #fff;
+
+	--main-font: 'Roboto', sans-serif;
+}
+
+* {
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-size: 16px;
+}
+
+h1 {
+	font-family: var(--main-font);
+}
+
+p {
+	font-family: var(--main-font);
+	font-size: 1rem;
+}
+
+input {
+	font-family: var(--main-font);
+	font-size: 1rem;
+}
+
+button {
+	font-family: var(--main-font);
+	font-size: 1rem;
+}
