@@ -1,10 +1,25 @@
+/* THIS CODE HAS BEEN WRITTEN BY FOLLOWING THESE 2 GUIDES:
+ * https://medium.com/@aibolkussain/create-your-own-virtual-dom-to-understand-it-part-1-47b9b6fc6dfb
+ * https://medium.com/@aibolkussain/create-your-own-virtual-dom-to-understand-it-part-2-c85c4ffd15f0
+ *  */
+
 import BaseComponent from './baseComponent.mjs'
 import { createVirtualElement } from '../virtualdom/virtualdom.mjs'
 
 export default class Header extends BaseComponent {
 	constructor(props) {
 		super(props)
-		this.props = props
+		this.submitSearchForm= this.submitSearchForm.bind(this)
+	}
+
+	submitSearchForm(event) {
+		event.preventDefault();
+		if(event.target[0].value != '') {
+
+		} else {
+			console.log('FILL IN A QUERY');
+		}
+		this.props.parseSearchUrl({search: event.target[0].value})
 	}
 
 	createVirtualComponent(props,state) {
@@ -16,6 +31,7 @@ export default class Header extends BaseComponent {
 							children: [
 								createVirtualElement('h1', {children:['Has anyone been working on my forked repo recently?']}),
 								createVirtualElement('form', {
+									events: {submit: this.submitSearchForm},
 									children: [
 										createVirtualElement('input', {
 											attributes: {type: 'search', placeholder: 'repository'}

@@ -15,26 +15,42 @@ init()
 async function init() {
 	const apiSettings = {
 		baseUrl: 'https://api.github.com/repos',
-		forkedRepoOwner: 'cmda-minor-web',
-		forkedRepo: 'web-app-from-scratch-1920'
 	}
 		
-	//const forkers = await getForkers(apiSettings.baseUrl,apiSettings.forkedRepoOwner,apiSettings.forkedRepo)
-		//.then(async (entrys) => {
-			//return await getCommits(apiSettings.baseUrl,entrys)
-		//})
-
-	//const cleanedForkers = await cleanGithubData(forkers)
-		//.then(async (entrys) => {
-			//return await sortCommits(entrys)
-		//})
-	
 	class App extends Component {
-		createVirtualComponent() {
+		constructor(props) {
+			super(props)
+			this.state.header = new Header({parseSearchUrl: this.parseSearchUrl.bind(this)})
+			this.state.overview = new Overview()
+			this.state.foo = 'bar'
+		}
+			
+		async parseSearchUrl({search}) {
+			// FETCH DATA HERE 
+			// TODO REFACTOR STRING MANIPULATION
+			const split_string = search.split('https://github.com/')	
+			const finalstring = split_string[1].split('/')
+			const fetchUrl = `${apiSettings.baseUrl}/${finalstring[0]}/${finalstring[1]}`
+
+			const forkers = await getForkers(apiSettings.baseUrl,finalstring[0],finalstring[1])
+				.then(async (entrys) => {
+					console.log(entrys);
+					return await getCommits(apiSettings.baseUrl,entrys)
+				})
+
+			const cleanedForkers = await cleanGithubData(forkers)
+				.then(async (entrys) => {
+					return await sortCommits(entrys)
+				})
+
+			console.log(cleanedForkers);
+		}
+
+		createVirtualComponent(props,state) {
 			return createVirtualElement('div', {
 				children: [
-					createVirtualElement(Header),
-					createVirtualElement(Overview)
+					state.header.createVirtualComponent(),
+					state.overview.createVirtualComponent()
 				]
 			})
 		}

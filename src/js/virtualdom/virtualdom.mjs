@@ -1,3 +1,12 @@
+/* THIS CODE HAS BEEN WRITTEN BY FOLLOWING THESE 3 GUIDES:
+ * https://dev.to/ycmjason/building-a-simple-virtual-dom-from-scratch-3d05
+ * https://medium.com/@aibolkussain/create-your-own-virtual-dom-to-understand-it-part-1-47b9b6fc6dfb
+ * https://medium.com/@aibolkussain/create-your-own-virtual-dom-to-understand-it-part-2-c85c4ffd15f0
+ *
+ * Special thanks to Thijs for comming up with the sollution of handling events, check him out here:
+ * https://github.com/iSirThijs
+	* */
+
 export function hyperscript(nodeName, attributes, ...children) {
 	const $el = document.createElement(nodeName)
 
@@ -16,13 +25,14 @@ export function hyperscript(nodeName, attributes, ...children) {
 	return $el
 }
 
-export function createVirtualElement( tagName, { attributes = {}, children = [] } = {} ) {
+export function createVirtualElement( tagName, { attributes = {}, children = [], events = {} } = {} ) {
 	const virtualElement = Object.create(null)
 
 	Object.assign(virtualElement, {
 		tagName,
 		attributes,
 		children,
+		events
 	})
 
 	return virtualElement
@@ -31,7 +41,7 @@ export function createVirtualElement( tagName, { attributes = {}, children = [] 
 export function renderElementToHTML(virtualElement) {
 	let $element
 
-	const { tagName, attributes, children } = virtualElement
+	const { tagName, attributes, children, events } = virtualElement
 
 	if(typeof virtualElement === 'string') return document.createTextNode(virtualElement)
 	
@@ -40,6 +50,11 @@ export function renderElementToHTML(virtualElement) {
 
 		for(let key in attributes) {
 			$element.setAttribute(key, attributes[key])
+		}
+		
+		// Add event + callback to the element 
+		for(const [event, callback] of Object.entries(events)) {
+			$element.addEventListener(event, callback)
 		}
 	} else if(typeof tagName === 'function') {
 		// Initiate the component
@@ -58,16 +73,14 @@ export function renderElementToHTML(virtualElement) {
 	return $element
 }
 
-export function renderComponent(component, parent) {
-	const oldBase = component.base
-	console.log(component);
-	component.base= renderElementToHTML(
-		component.createVirtualComponent(component.props, component.state)
+export function renderComponent({ createVirtualComponent, base, props = {}, state = {} }, parent) {
+	const oldBase = base
+	base= renderElementToHTML(
+		createVirtualComponent(props, state)
 	)
-
 	if(parent) {
-		parent.appendChild(component.base)
+		parent.appendChild(base)
 	} else {
-		oldBase.parentNode.replaceChild(component.base, oldBase)
+		oldBase.parentNode.replaceChild(base, oldBase)
 	}
 }
