@@ -1,4 +1,4 @@
-import { renderComponent } from '../virtualdom/virtualdom.mjs'
+import { updateComponent } from '../virtualdom/virtualdom.mjs'
 
 export default class BaseComponent {
 	constructor(props) {
@@ -8,6 +8,6 @@ export default class BaseComponent {
 
 	setState(state) {
 		this.state = Object.assign({}, state)
-		renderComponent(this)
+		updateComponent(this)
 	}
 }

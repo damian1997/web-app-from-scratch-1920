@@ -27,24 +27,19 @@ export function hyperscript(nodeName, attributes, ...children) {
 
 export function createVirtualElement( tagName, { attributes = {}, children = [], events = {} } = {} ) {
 	const virtualElement = Object.create(null)
-
 	Object.assign(virtualElement, {
 		tagName,
 		attributes,
 		children,
 		events
 	})
-
 	return virtualElement
 }
 
 export function renderElementToHTML(virtualElement) {
 	let $element
-
 	const { tagName, attributes, children, events } = virtualElement
-
 	if(typeof virtualElement === 'string') return document.createTextNode(virtualElement)
-	
 	if(typeof tagName === 'string') {
 		$element = document.createElement(tagName)
 
@@ -59,17 +54,17 @@ export function renderElementToHTML(virtualElement) {
 	} else if(typeof tagName === 'function') {
 		// Initiate the component
 		const component = new tagName(attributes)
-		$element = renderElementToHTML(
-		component.createVirtualComponent(component.props, component.state)
-		)
+		const renderedComponent = component.createVirtualComponent(component.props, component.state)
+		
+		$element = renderElementToHTML(renderedComponent)
 		
 		// Save DOM reference in base field
 		component.base = $element
+		component.virtualElement = renderedComponent
 	}
 	
 	// Recursively render this for all its children
 	(children || []).forEach(child => $element.appendChild(renderElementToHTML(child)))
-
 	return $element
 }
 
@@ -83,4 +78,122 @@ export function renderComponent({ createVirtualComponent, base, props = {}, stat
 	} else {
 		oldBase.parentNode.replaceChild(base, oldBase)
 	}
+}
+
+export function updateComponent(component) {
+	let virtualComponent = component.createVirtualComponent(component.props, component.state)
+	component.base = diff(component.base, component.virtualElement, virtualComponent)
+}
+
+export function diff($element, virtualOldElement, virtualNewElement, parent) {
+	if($element) {
+		if(virtualNewElement === undefined) {
+			return $element => {
+				$element.remove()
+				return undefined
+			}
+		}
+
+		if(typeof virtualNewElement === 'string' || typeof virtualOldElement === 'string') {
+			if(virtualOldElement !== virtualNewElement) {
+				let $newNode = renderElementToHTML(virtualNewElement)
+				$element.replaceWith($newNode)
+				return $newNode
+			} else return $element
+		} 
+
+		if(virtualOldElement.tagName !== virtualNewElement.tagName) {
+			if(typeof virtualNewElement.tagName === 'function') {
+				const component = new virtualNewElement.tagName(virtualNewElement.props)
+				const virtualComponent = component.render(component.props, component.state)
+				let $newNode = renderElementToHTML(virtualComponent)
+
+				component.base = $newNode
+				component.virtualOldElement = virtualComponent
+				$element.replaceWith($newNode)
+				return $newNode
+			}
+
+		}
+
+		const patchAttributes = diffAttrs(virtualOldElement.attributes, virtualNewElement.attributes)
+		const patchChildren = diffChildren(virtualOldElement.children, virtualNewElement.children)
+		patchAttributes($element)
+		patchChildren($element)
+
+		virtualOldElement.children = virtualNewElement.children
+		virtualOldElement.attributes = virtualNewElement.attributes
+
+		return $element
+	} else {
+		console.log('PREVIOUS ELEMENT ', $element,' FIRST RENDER INSIDE ', parent)
+		const newDom = renderElementToHTML(virtualNewElement)
+		parent.appendChild(newDom)
+		return newDom 
+	}
+}
+
+function zip(xs, ys) {
+  const zipped = []
+  for (let i = 0; i < Math.min(xs.length, ys.length); i++) {
+    zipped.push([xs[i], ys[i]])
+  }
+  return zipped
+}
+
+function diffAttrs(oldAttrs, newAttrs) {
+	const patches = [];
+
+	// setting new attributes
+	for(const [key, value] of Object.entries(newAttrs)) {
+		patches.push($node => {
+			$node.setAttribute(key, value);
+			return $node;
+		});
+	}
+
+	// removing old attrs
+	for (const key in oldAttrs){
+		if(!(key in newAttrs)) {
+			patches.push($node => {
+				$node.removeAttribute(key);
+				return $node;
+			});
+		}
+	}
+
+	return $node => {
+		for(const patch of patches){
+			patch($node);
+		}
+		return $node;
+	};
+}
+
+function diffChildren(oldVirtualChildren, newVirtualChildren) {
+	
+	const childPatches = [];
+	oldVirtualChildren.forEach((oldVirtualChild, i) => {
+		childPatches.push(($node) => diff($node, oldVirtualChild, newVirtualChildren[i]));
+	});
+
+	const additionalPatches = [];
+	for (const additionalVirtualChild of newVirtualChildren.slice(oldVirtualChildren.length)) {
+		additionalPatches.push($node => {
+			$node.appendChild(renderElementToHTML(additionalVirtualChild));
+			return $node;
+		});
+	}
+
+	return $parent => {
+		for (const patch of additionalPatches){
+			patch($parent);
+		}
+
+		for (const [patch, $child] of zip(childPatches, $parent.childNodes)) {
+			patch($child);
+		}
+
+		return $parent;
+	};
 }

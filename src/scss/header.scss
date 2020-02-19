@@ -1,6 +1,7 @@
-header {
+.app > header {
 	position: relative;
 	padding: 100px 20px 80px;
+	overflow: hidden;
 	background: var(--primary-color);
 	&:before {
 		position: absolute;

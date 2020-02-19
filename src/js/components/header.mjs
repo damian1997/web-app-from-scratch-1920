@@ -9,17 +9,16 @@ import { createVirtualElement } from '../virtualdom/virtualdom.mjs'
 export default class Header extends BaseComponent {
 	constructor(props) {
 		super(props)
-		this.submitSearchForm= this.submitSearchForm.bind(this)
+		this.submitSearchForm = this.submitSearchForm.bind(this)
 	}
 
 	submitSearchForm(event) {
 		event.preventDefault();
 		if(event.target[0].value != '') {
-
+			this.props.getResults({search: event.target[0].value})
 		} else {
 			console.log('FILL IN A QUERY');
 		}
-		this.props.parseSearchUrl({search: event.target[0].value})
 	}
 
 	createVirtualComponent(props,state) {

@@ -4,19 +4,27 @@
  *  */
 
 import BaseComponent from './baseComponent.mjs'
-import { renderComponent, createVirtualElement } from '../virtualdom/virtualdom.mjs'
+import overviewCard from './overviewcard.mjs'
+
+import { renderComponent, createVirtualElement, updateComponent } from '../virtualdom/virtualdom.mjs'
 
 export default class Overview extends BaseComponent {
 	constructor(props) {
 		super(props)
-		this.state.results = []
-		this.state.search = undefined;
+		this.state = {}
 	}
 
 	createVirtualComponent(props,state) {
 		return createVirtualElement('section', {
-			attributes: {},
-			children: []
+			attributes: {
+				class: 'forker-overview'
+			},
+			children: [
+				...state.results.map((item) => {
+					const card = new overviewCard(item)
+					return card.createVirtualComponent(card.props, card.state)
+				})
+			]
 		})
 	}
 }
