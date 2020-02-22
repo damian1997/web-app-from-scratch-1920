@@ -30,7 +30,7 @@ export default class Header extends BaseComponent {
 							children: [
 								createVirtualElement('h1', {children:['Has anyone been working on my forked repo recently?']}),
 								createVirtualElement('form', {
-									events: {submit: this.submitSearchForm},
+									events: { submit: this.submitSearchForm },
 									children: [
 										createVirtualElement('input', {
 											attributes: {type: 'search', placeholder: 'repository'}

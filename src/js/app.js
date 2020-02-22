@@ -1,6 +1,7 @@
 import { getForkers, getCommits, getIssues } from './components/api'
 import { readStorage, clearStorage, addLocalstorageEntry } from './components/localstorage'
 import { cleanGithubData, sortCommits } from './components/data'
+
 import Routie from './libraries/routie'
 
 import Component from './components/baseComponent.mjs'
@@ -27,7 +28,6 @@ export default class App extends Component {
 
 		const forkers = await getForkers(apiBaseUrl,finalstring[0],finalstring[1])
 			.then(async (entrys) => {
-				console.log(entrys);
 				return await getCommits(apiBaseUrl,entrys)
 			})
 
@@ -60,3 +60,13 @@ const render = (virtualNode, parent) => {
 }
 
 render(createVirtualElement(App),document.body)
+
+Routie({
+	'': function() {
+		console.log('base route')
+	},
+	'commit/:id': function(id) {
+		console.log(App)
+		console.log('id route')
+	}
+})

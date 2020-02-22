@@ -5,38 +5,71 @@ export default class overviewCard extends BaseComponent {
 	constructor(props) {
 		super(props)
 		this.state = {}
+		this.toggleOverviewCards = this.toggleOverviewCards
 	}
 
-	createVirtualComponent(props,sate) {
-		console.log(props)
+	toggleOverviewCards(event) {
+		const commitsContainer = this.nextSibling
+		if(commitsContainer.classList.contains('hide')) {
+			commitsContainer.classList.add('show')
+			commitsContainer.classList.remove('hide')
+		} else {
+			commitsContainer.classList.add('hide')
+			commitsContainer.classList.remove('show')
+		}
+	}
 
+	createVirtualComponent(props,state) {
 		return createVirtualElement('section', {
-			attributes: {
-				class: 'forker-overview--card'
-			},
+			attributes: { class: 'forker-overview--card' },
 			children: [
 				createVirtualElement('header', {
+					events: { click: this.toggleOverviewCards },
 					children: [
 						createVirtualElement('h2', {
 							children: [props.gitusername]
 						}),
-						createVirtualElement('span', {
-							children: [props.commits.length.toString()]
+						createVirtualElement('div', {
+							children: [
+								createVirtualElement('span', {
+									children: [props.commits.length.toString()]
+								}),
+								createVirtualElement('span', {
+									attributes: { class: 'icon-down-dir' }
+								})
+							]
 						})
 					]
 				}),
-				...props.commits.map((commitbydate) => {
-					return createVirtualElement('section', {
-						children: [
-							commitbydate.date.toString(),
-							...commitbydate.commits.map((commit) => {
-								return createVirtualElement('div', {
-									children: [commit.commit.toString()]
-								})
+				createVirtualElement('div', {
+					attributes: { class: 'forker-overview--card--commits-container hide' },
+					children: [
+						...props.commits.map((commitbydate) => {
+							return createVirtualElement('section', {
+								children: [
+									createVirtualElement('h3', {
+										children: [
+											commitbydate.date.toString(),
+										]
+									}),
+									...commitbydate.commits.map((commit) => {
+										return createVirtualElement('div', {
+											children: [
+												createVirtualElement('a', {
+													events: { click: this.detailState },
+													attributes: {href: `#commit/${commit.sha.toString()}`},
+													children: [
+														commit.commit.toString()
+													]
+												})
+											]
+										})
+									})
+								]
 							})
-						]
-					})
-				})
+						})
+					]
+				}),
 			]
 		})
 	}

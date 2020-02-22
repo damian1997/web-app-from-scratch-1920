@@ -126,7 +126,6 @@ export function diff($element, virtualOldElement, virtualNewElement, parent) {
 
 		return $element
 	} else {
-		console.log('PREVIOUS ELEMENT ', $element,' FIRST RENDER INSIDE ', parent)
 		const newDom = renderElementToHTML(virtualNewElement)
 		parent.appendChild(newDom)
 		return newDom 

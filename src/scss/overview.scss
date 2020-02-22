@@ -1,7 +1,21 @@
 .forker-overview {
 	padding: 40px 20px 60px;
 	&--card {
+		position: relative;
 		padding-bottom: 20px;
+
+		&--commits-container {
+			position: relative;
+
+			&.hide {
+				display: none;
+			}
+
+			&.show {
+				display: block;
+			}
+
+		}
 
 		&:last-child {
 			padding-bottom: 0;
@@ -10,6 +24,7 @@
 		header {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
+			margin-bottom: 10px;
 			padding: 0 10px 0;
 			border-radius: 4px;
 			background: var(--primary-color);
@@ -23,28 +38,57 @@
 				justify-self: start;
 			}
 
-			span {
+			div {
 				align-self: center;
 				justify-self: end;
+
+				span {
+					vertical-align: middle;
+				}
+
+				.icon {
+					width: 20px;
+					height: 20px;
+					margin-left: 10px;
+					background: red;
+				}
+
 			}
 
 		}
 
 		section {
 			position: relative;
-			padding: 0 10px 0;
+			padding: 0 10px 20px;
 			border-left: 4px solid var(--primary-color);
+
+			h3 {
+				margin: 0;
+			}
+
+			> div {
+				border-bottom: 1px solid var(--grey-medium);
+				padding: 15px 0 15px;
+
+				p {
+					margin: 0;
+				}
+
+			}
 
 			&:before {
 				position: absolute;
 				top: 0;
-				left: -7px;
+				left: -8px;
 				display: block;
 				content: '';
 				width: 10px;
 				height: 10px;
-				background: red;
+				background: var(--white-color);
+				border-radius: 50%;
+				border: 1px solid var(--primary-color);
 			}
+
 		}
 
 	}
