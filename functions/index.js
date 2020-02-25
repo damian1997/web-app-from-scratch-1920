@@ -12,27 +12,35 @@ const scrapeMetatags = (text) => {
         const res = await fetch(url);
 
         const html = await res.text();
-        const $ = cheerio.load(html);
 
-        return { html } 
+		const parsedJSON = JSON.parse(html)
+
+		const files = parsedJSON.files.map(async (file) => {
+			if(file.filename.includes('.js') || file.filename.includes('.css') || file.filename.includes('.scss') || file.filename.includes('.mjs') || file.filename.includes('.json') || file.filename.includes('md') || file.filename.includes('.yml')) {
+				const res = await fetch(file.raw_url)
+
+				const commitContents = await res.text()
+				return { filename: file.filename, filecontents: commitContents, patch: file.patch }
+			} else if(file.filename.includes('.svg')){
+				return { filename: file.filename, commitFile: 'image', imagePath: file.raw_url}
+			} else {
+				return { filename: file.filename, commitFile: 'image' }
+			}
+		})
+
+        return Promise.all(files) 
     });
-
 
     return Promise.all(requests);
 
 }
 
 exports.scraper = functions.https.onRequest( async (request, response) => {
+	cors(request, response, async () => {
+		const body = JSON.parse(request.body);
 
-    cors(request, response, async () => {
+		const data = await scrapeMetatags(body);
 
-        const body = JSON.parse(request.body);
-
-        const data = await scrapeMetatags(body);
-
-    });
+		response.send(data)
+	});
 });
-
-exports.helloWorld = functions.https.onRequest((req, res) => {
-	res.send('Hello from firebase functions')
-})

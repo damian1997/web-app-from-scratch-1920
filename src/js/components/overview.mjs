@@ -7,27 +7,41 @@
 import BaseComponent from './baseComponent.mjs'
 import overviewCard from './overviewcard.mjs'
 
-import { renderComponent, createVirtualElement, updateComponent } from '../virtualdom/virtualdom.mjs'
+import { renderComponent, createVirtualElement, updateComponent, renderElementToHTML } from '../virtualdom/virtualdom.mjs'
 
 export default class Overview extends BaseComponent {
 	constructor(props) {
 		super(props)
-		this.state.results = [
-		]
+		this.state.results = []
 		this.overviewCard = new overviewCard()
+		this.virtualElement = this.createVirtualComponent(this.props, this.state)
+		this.base = renderElementToHTML(this.virtualElement)
 	}
 
-
 	createVirtualComponent(props,state) {
-		return createVirtualElement('section', {
-			attributes: {
-				class: 'forker-overview'
-			},
-			children: [
-				...state.results.map((item) => {
-					return this.overviewCard.createVirtualComponent(item, this.state)
-				})
-			]
-		})
+		if(state.results.length) {
+			console.log(state.results)
+			return createVirtualElement('section', {
+				attributes: {
+					class: 'forker-overview'
+				},
+				children: [
+					...state.results.map((item) => {
+						return this.overviewCard.createVirtualComponent(item, this.state)
+					})
+				]
+			})
+		} else {
+			return createVirtualElement('section', {
+				attributes: {
+					class: 'forker-overview'
+				},
+				children: [
+					createVirtualElement('h2', {
+						children: ['Nothing found']
+					})
+				]
+			})
+		}
 	}
 }

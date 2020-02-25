@@ -57,7 +57,7 @@ export default class overviewCard extends BaseComponent {
 											children: [
 												createVirtualElement('a', {
 													events: { click: this.detailState },
-													attributes: {href: `#commit/${commit.sha.toString()}`},
+													attributes: {href: `#commit/${props.gitusername.toString()}&${props.repository.toString()}&${commit.sha.toString()}`},
 													children: [
 														commit.commit.toString()
 													]

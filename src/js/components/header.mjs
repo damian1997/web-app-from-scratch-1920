@@ -4,12 +4,14 @@
  *  */
 
 import BaseComponent from './baseComponent.mjs'
-import { createVirtualElement } from '../virtualdom/virtualdom.mjs'
+import { renderComponent, createVirtualElement, updateComponent, renderElementToHTML } from '../virtualdom/virtualdom.mjs'
 
 export default class Header extends BaseComponent {
 	constructor(props) {
 		super(props)
 		this.submitSearchForm = this.submitSearchForm.bind(this)
+		this.virtualElement = this.createVirtualComponent(this.props, this.state)
+		this.base = renderElementToHTML(this.virtualElement)
 	}
 
 	submitSearchForm(event) {

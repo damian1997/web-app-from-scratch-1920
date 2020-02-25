@@ -1,24 +1,24 @@
 import { getForkers, getCommits, getIssues } from './components/api'
 import { cleanGithubData, sortCommits } from './components/data'
 
-import Routie from './libraries/routie'
-
 import Component from './components/baseComponent.mjs'
 import Header from './components/header.mjs'
 import Overview from './components/overview.mjs'
 import Detail from './components/detail.mjs'
-import Router from './components/router.mjs'
 
-import { createVirtualElement, renderElementToHTML, renderComponent, diff, } from './virtualdom/virtualdom.mjs'
+import { createVirtualElement, renderElementToHTML, renderComponent, diff, updateComponent } from './virtualdom/virtualdom.mjs'
 
 export default class App extends Component {
 	constructor(props) {
 		super(props)
+		this.state.page = (props && props.page) ? new props.page() : new Overview()
 		this.getResults = this.getResults.bind(this)
+		this.scraper = this.scraper.bind(this)
 		this.header = new Header({ getResults: this.getResults.bind() })
-		this.overview = new Overview()
-		this.detail = new Detail()
 		this.state.results = []
+
+		this.virtualElement = this.createVirtualComponent(this.props, this.state)
+		this.base = renderElementToHTML(this.virtualElement)
 	}
 
 	async getResults({search}) {
@@ -36,7 +36,29 @@ export default class App extends Component {
 			.then(async (entrys) => {
 				return await sortCommits(entrys)
 			})
-		this.setState({results: cleanedForkers})
+	
+		this.setState({results: cleanedForkers, page: this.state.page})
+	}
+
+	async scraper(id) {
+		const splitstr = id.split('&')
+		const res = await fetch('http://localhost:5000/web-app-from-scratch-f6a7f/us-central1/scraper', { 
+			method: 'POST', 
+			body: JSON.stringify(`https://api.github.com/repos/${splitstr[0]}/${splitstr[1]}/commits/${splitstr[2]}`) 
+		})
+
+		const data = await res.json()
+		console.log(data)
+		
+		this.setState({results: data, page: this.state.page})
+	}
+
+	changePage(page, id = undefined) {
+		this.state.page = new page()
+		if(id) {
+			this.scraper(id)
+		}
+		updateComponent(this)
 	}
 
 	createVirtualComponent(props,state) {
@@ -48,8 +70,7 @@ export default class App extends Component {
 				this.header.createVirtualComponent(this.header.props,this.header.state),
 				createVirtualElement('main', {
 					children: [
-						this.detail.createVirtualComponent({commitid: 'meessour&web-app-from-scratch-1920&commits&749c2c955eeaaaf3593e78932fd111c121552294'}, state)
-						//this.overview.createVirtualComponent(props, state)
+						state.page.createVirtualComponent(state.page.props, this.state)
 					]
 				})
 			]
@@ -57,20 +78,3 @@ export default class App extends Component {
 	}
 }
 
-async function foo () {
-	const res = await fetch('http://localhost:5000/web-app-from-scratch-f6a7f/us-central1/scraper', { 
-		method: 'POST', 
-		body: JSON.stringify('https://raw.githubusercontent.com/meessour/web-app-from-scratch-1920/749c2c955eeaaaf3593e78932fd111c121552294/week-2/public/css/styles.css') 
-	});
-	
-	const data = await res.json();
-	console.log(data)
-}
-
-foo()
-
-const render = (virtualNode, parent) => {
-	diff(undefined, undefined, virtualNode, parent)
-}
-
-render(createVirtualElement(App),document.body)

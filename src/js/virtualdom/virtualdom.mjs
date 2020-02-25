@@ -7,24 +7,6 @@
  * https://github.com/iSirThijs
 	* */
 
-export function hyperscript(nodeName, attributes, ...children) {
-	const $el = document.createElement(nodeName)
-
-	for(let key in attributes) {
-		$el.setAttribute(key, attributes[key])
-	}
-
-	children.forEach(child => {
-		if(typeof child === 'string') {
-			$el.appendChild(document.createTextNode(child))
-		} else {
-			$el.appendChild(child)
-		}
-	})
-
-	return $el
-}
-
 export function createVirtualElement( tagName, { attributes = {}, children = [], events = {} } = {} ) {
 	const virtualElement = Object.create(null)
 	Object.assign(virtualElement, {
@@ -37,34 +19,35 @@ export function createVirtualElement( tagName, { attributes = {}, children = [],
 }
 
 export function renderElementToHTML(virtualElement) {
-	let $element
-	const { tagName, attributes, children, events } = virtualElement
-	if(typeof virtualElement === 'string') return document.createTextNode(virtualElement)
-	if(typeof tagName === 'string') {
-		$element = document.createElement(tagName)
+	// The virtual element is a string: return a text node
+	if (typeof virtualElement === 'string')	return document.createTextNode(virtualElement);
+	
+	let {tagName, attributes, children, events} = virtualElement;
+	let $element;
+	if (typeof tagName === 'string') {
+		// The tagname is a 'valid' HTML so using it to render
+		$element = document.createElement(tagName);
+		
+		// set it's attribute
+		for (const [key, value] of Object.entries(attributes)) {
+			$element.setAttribute(key, value);
+		}
 
-		for(let key in attributes) {
-			$element.setAttribute(key, attributes[key])
+		for (const [event, callback] of Object.entries(events)) {
+			$element.addEventListener(event, callback);
 		}
+
+	} else if(typeof tagName === 'function') {
+		const component = new tagName();
+		const renderedComponent = component.createVirtualComponent(component.props, component.state);
+		$element = renderElementToHTML(renderedComponent);
 		
-		// Add event + callback to the element 
-		for(const [event, callback] of Object.entries(events)) {
-			$element.addEventListener(event, callback)
-		}
-	} else if(typeof tagName === 'function' || typeof tagName === 'object') {
-		// Initiate the component
-		const component = new tagName(attributes)
-		const renderedComponent = component.createVirtualComponent(component.props, component.state)
-		
-		$element = renderElementToHTML(renderedComponent)
-		// Save DOM reference in base field
-		component.base = $element
-		component.virtualElement = renderedComponent
+		component.base = $element;
+		component.virtualElement = renderedComponent;
 	}
-		
-	// Recursively render this for all its children
-	(children || []).forEach(child => $element.appendChild(renderElementToHTML(child)))
-	return $element
+
+	(children || []).forEach(child =>$element.appendChild(renderElementToHTML(child)));
+	return $element;
 }
 
 export function renderComponent({ createVirtualComponent, base, props = {}, state = {} }, parent) {
@@ -86,25 +69,28 @@ export function updateComponent(component) {
 
 export function diff($element, virtualOldElement, virtualNewElement, parent) {
 	if($element) {
+		// There are no new elements so they can be removed	
 		if(virtualNewElement === undefined) {
-			return $element => {
-				$element.remove()
-				return undefined
-			}
+			$element.remove()
+			return undefined
 		}
 
 		if(typeof virtualNewElement === 'string' || typeof virtualOldElement === 'string') {
+			// Check if the string is same as old string
 			if(virtualOldElement !== virtualNewElement) {
 				let $newNode = renderElementToHTML(virtualNewElement)
 				$element.replaceWith($newNode)
 				return $newNode
 			} else return $element
-		} 
-		
+		}
+
+		// Both elements are of a different type
 		if(virtualOldElement.tagName !== virtualNewElement.tagName) {
+			
+			// element is a component
 			if(typeof virtualNewElement.tagName === 'function') {
 				const component = new virtualNewElement.tagName(virtualNewElement.props)
-				const virtualComponent = component.render(component.props, component.state)
+				const virtualComponent = component.createVirtualComponent(component.props, component.state)
 				let $newNode = renderElementToHTML(virtualComponent)
 
 				component.base = $newNode
@@ -112,9 +98,15 @@ export function diff($element, virtualOldElement, virtualNewElement, parent) {
 				$element.replaceWith($newNode)
 				return $newNode
 			}
+			
+			// Replace old element with new element
+			let $newNode = renderElementToHTML(virtualNewElement);
+			$element.replaceWith($newNode);
+			return $newNode;
 
 		}
-
+			
+		// Check if attributes or children are different and patch them
 		const patchAttributes = diffAttrs(virtualOldElement.attributes, virtualNewElement.attributes)
 		const patchChildren = diffChildren(virtualOldElement.children, virtualNewElement.children)
 		patchAttributes($element)
@@ -125,7 +117,7 @@ export function diff($element, virtualOldElement, virtualNewElement, parent) {
 
 		return $element
 	} else {
-		(!parent) ? parent = document.body : console.log('Parent has been set')
+		// This is run when there is no DOM yet, this wil append the virtual dom to the parent
 		const newDom = renderElementToHTML(virtualNewElement)
 		parent.appendChild(newDom)
 		return newDom 
@@ -143,7 +135,6 @@ function zip(xs, ys) {
 function diffAttrs(oldAttrs, newAttrs) {
 	const patches = [];
 
-	// setting new attributes
 	for(const [key, value] of Object.entries(newAttrs)) {
 		patches.push($node => {
 			$node.setAttribute(key, value);
@@ -151,7 +142,6 @@ function diffAttrs(oldAttrs, newAttrs) {
 		});
 	}
 
-	// removing old attrs
 	for (const key in oldAttrs){
 		if(!(key in newAttrs)) {
 			patches.push($node => {
