@@ -1,0 +1,395 @@
+[debug] [2020-02-25T10:08:55.907Z] ----------------------------------------------------------------------
+[debug] [2020-02-25T10:08:55.908Z] Command:       /usr/local/Cellar/node/13.7.0/bin/node /usr/local/bin/firebase serve --only functions
+[debug] [2020-02-25T10:08:55.908Z] CLI Version:   7.13.1
+[debug] [2020-02-25T10:08:55.908Z] Platform:      darwin
+[debug] [2020-02-25T10:08:55.908Z] Node Version:  v13.7.0
+[debug] [2020-02-25T10:08:55.909Z] Time:          Tue Feb 25 2020 11:08:55 GMT+0100 (Central European Standard Time)
+[debug] [2020-02-25T10:08:55.909Z] ----------------------------------------------------------------------
+[debug] [2020-02-25T10:08:55.909Z] 
+[debug] [2020-02-25T10:08:55.915Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-02-25T10:08:55.915Z] > authorizing via signed-in user
+[debug] [2020-02-25T10:08:55.915Z] [iam] checking project web-app-from-scratch-f6a7f for permissions ["firebase.projects.get"]
+[debug] [2020-02-25T10:08:55.917Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/web-app-from-scratch-f6a7f:testIamPermissions  
+
+[debug] [2020-02-25T10:08:57.196Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-25T10:08:57.198Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/web-app-from-scratch-f6a7f  
+ 
+[debug] [2020-02-25T10:08:57.718Z] <<< HTTP RESPONSE 200
+[warn] ⚠  Your requested "node" version "8" doesn't match your global version "13"
+[info] ✔  functions: Emulator started at http://localhost:5000
+[info] i  functions: Watching "/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions" for Cloud Functions...
+[debug] [2020-02-25T10:08:57.751Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-02-25T10:08:57.751Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-02-25T10:08:57.751Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-02-25T10:08:57.752Z] [worker-~diagnostic~-df71328e-f572-42df-b879-808d579e793f]: Assigning socketPath: /var/folders/n1/krrhmrc50z70khp8vr9lk5b80000gn/T/fire_emu_11256.sock
+[debug] [2020-02-25T10:08:57.752Z] [worker-~diagnostic~-df71328e-f572-42df-b879-808d579e793f]: BUSY
+[debug] [2020-02-25T10:08:57.963Z] [runtime-status] [11256] Functions runtime initialized. {"cwd":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions","node_version":"13.7.0"}
+[debug] [2020-02-25T10:08:57.963Z] [runtime-status] [11256] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-25T10:08:57.965Z] [runtime-status] [11256] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-02-25T10:08:57.965Z] [runtime-status] [11256] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:08:57.966Z] [runtime-status] [11256] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[info] ✔  functions[scraper]: http function initialized (http://localhost:5000/web-app-from-scratch-f6a7f/us-central1/scraper).
+[debug] [2020-02-25T10:08:58.088Z] [worker-~diagnostic~-df71328e-f572-42df-b879-808d579e793f]: IDLE
+[debug] [2020-02-25T10:09:08.146Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-02-25T10:09:08.147Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-02-25T10:09:08.147Z] Accepted request POST /web-app-from-scratch-f6a7f/us-central1/scraper --> scraper
+[debug] [2020-02-25T10:09:08.155Z] [worker-pool] addWorker(scraper)
+[debug] [2020-02-25T10:09:08.155Z] [worker-pool] Adding worker with key scraper, total=1
+[debug] [2020-02-25T10:09:08.155Z] [worker-pool] submitWork(triggerId=scraper)
+[debug] [2020-02-25T10:09:08.155Z] [worker-scraper-bd3917cb-079b-4ae8-8a57-d01016b4e065]: Assigning socketPath: /var/folders/n1/krrhmrc50z70khp8vr9lk5b80000gn/T/fire_emu_11259.sock
+[debug] [2020-02-25T10:09:08.155Z] [worker-scraper-bd3917cb-079b-4ae8-8a57-d01016b4e065]: BUSY
+[debug] [2020-02-25T10:09:08.436Z] [runtime-status] [11259] Functions runtime initialized. {"cwd":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions","node_version":"13.7.0"}
+[debug] [2020-02-25T10:09:08.437Z] [runtime-status] [11259] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-25T10:09:08.438Z] [runtime-status] [11259] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-02-25T10:09:08.439Z] [runtime-status] [11259] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:09:08.440Z] [runtime-status] [11259] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:09:08.572Z] [runtime-status] [11259] Trigger "scraper" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "scraper"
+[debug] [2020-02-25T10:09:08.573Z] [runtime-status] [11259] triggerDefinition {"httpsTrigger":{},"name":"scraper","entryPoint":"scraper"}
+[debug] [2020-02-25T10:09:08.573Z] [runtime-status] [11259] Running scraper in mode HTTPS
+[debug] [2020-02-25T10:09:08.578Z] [runtime-status] [11259] Attempting to listen to socketPath: /var/folders/n1/krrhmrc50z70khp8vr9lk5b80000gn/T/fire_emu_11259.sock
+[debug] [2020-02-25T10:09:08.582Z] [functions] Runtime ready! Sending request!
+[debug] [2020-02-25T10:09:08.602Z] [runtime-status] [11259] Ephemeral server handling POST request
+[debug] [2020-02-25T10:09:08.630Z] [runtime-status] [11259] Ephemeral server survived.
+[debug] [2020-02-25T10:10:06.677Z] File /Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/index.js changed, reloading triggers
+[debug] [2020-02-25T10:10:07.683Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-02-25T10:10:07.683Z] [worker-~diagnostic~-df71328e-f572-42df-b879-808d579e793f]: FINISHING
+[debug] [2020-02-25T10:10:07.683Z] [worker-pool] Marking BUSY worker to finish (scraper)
+[debug] [2020-02-25T10:10:07.683Z] [worker-scraper-bd3917cb-079b-4ae8-8a57-d01016b4e065]: FINISHING
+[debug] [2020-02-25T10:10:07.689Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-02-25T10:10:07.689Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-02-25T10:10:07.689Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-02-25T10:10:07.689Z] [worker-~diagnostic~-9e2f0428-75ab-43f6-83b3-48030c7e83d4]: Assigning socketPath: /var/folders/n1/krrhmrc50z70khp8vr9lk5b80000gn/T/fire_emu_11293.sock
+[debug] [2020-02-25T10:10:07.689Z] [worker-~diagnostic~-9e2f0428-75ab-43f6-83b3-48030c7e83d4]: BUSY
+[debug] [2020-02-25T10:10:07.691Z] [worker-~diagnostic~-df71328e-f572-42df-b879-808d579e793f]: exited
+[debug] [2020-02-25T10:10:07.691Z] [worker-~diagnostic~-df71328e-f572-42df-b879-808d579e793f]: FINISHED
+[debug] [2020-02-25T10:10:07.893Z] [runtime-status] [11293] Functions runtime initialized. {"cwd":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions","node_version":"13.7.0"}
+[debug] [2020-02-25T10:10:07.894Z] [runtime-status] [11293] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-25T10:10:07.895Z] [runtime-status] [11293] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-02-25T10:10:07.896Z] [runtime-status] [11293] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:10:07.897Z] [runtime-status] [11293] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[info] ✔  functions[helloWorld]: http function initialized (http://localhost:5000/web-app-from-scratch-f6a7f/us-central1/helloWorld).
+[debug] [2020-02-25T10:10:08.027Z] [worker-~diagnostic~-9e2f0428-75ab-43f6-83b3-48030c7e83d4]: IDLE
+[debug] [2020-02-25T10:10:13.413Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-02-25T10:10:13.413Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-02-25T10:10:13.413Z] Accepted request POST /web-app-from-scratch-f6a7f/us-central1/scraper --> scraper
+[debug] [2020-02-25T10:10:13.413Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-02-25T10:10:13.417Z] [worker-pool] addWorker(scraper)
+[debug] [2020-02-25T10:10:13.417Z] [worker-pool] Adding worker with key scraper, total=2
+[debug] [2020-02-25T10:10:13.417Z] [worker-pool] submitWork(triggerId=scraper)
+[debug] [2020-02-25T10:10:13.418Z] [worker-scraper-7499d4d5-9878-4929-9d69-c1f85adc8e37]: Assigning socketPath: /var/folders/n1/krrhmrc50z70khp8vr9lk5b80000gn/T/fire_emu_11296.sock
+[debug] [2020-02-25T10:10:13.420Z] [worker-scraper-7499d4d5-9878-4929-9d69-c1f85adc8e37]: BUSY
+[debug] [2020-02-25T10:10:13.657Z] [runtime-status] [11296] Functions runtime initialized. {"cwd":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions","node_version":"13.7.0"}
+[debug] [2020-02-25T10:10:13.658Z] [runtime-status] [11296] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-25T10:10:13.659Z] [runtime-status] [11296] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-02-25T10:10:13.660Z] [runtime-status] [11296] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:10:13.661Z] [runtime-status] [11296] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:10:13.794Z] [runtime-status] [11296] Trigger "scraper" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "scraper"
+[debug] [2020-02-25T10:10:13.795Z] [runtime-status] [11296] triggerDefinition {"httpsTrigger":{},"name":"scraper","entryPoint":"scraper"}
+[debug] [2020-02-25T10:10:13.795Z] [runtime-status] [11296] Running scraper in mode HTTPS
+[debug] [2020-02-25T10:10:13.800Z] [runtime-status] [11296] Attempting to listen to socketPath: /var/folders/n1/krrhmrc50z70khp8vr9lk5b80000gn/T/fire_emu_11296.sock
+[debug] [2020-02-25T10:10:13.802Z] [functions] Runtime ready! Sending request!
+[debug] [2020-02-25T10:10:13.820Z] [runtime-status] [11296] Ephemeral server handling POST request
+[debug] [2020-02-25T10:10:13.848Z] [runtime-status] [11296] Ephemeral server survived.
+[info] >  body, html {
+[info] >      height: 100%;
+[info] >      margin: 0;
+[info] >      background-image: url("../../../img/close-up-photography-of-microphone-144429.jpg");
+[info] >      height: 100%;
+[info] >      width: 100%;
+[info] >      background-position: center;
+[info] >      background-repeat: no-repeat;
+[info] >      background-size: cover;
+[info] >  }
+[info] >  
+[info] >  * {
+[info] >      box-sizing: border-box;
+[info] >      font-family: 'Montserrat'
+[info] >  }
+[info] >  
+[info] >  /* Removes the arrow in the search field */
+[info] >  
+[info] >  input::-webkit-calendar-picker-indicator {
+[info] >      display: none;
+[info] >  }
+[info] >  
+[info] >  .bg-text {
+[info] >      color: white;
+[info] >      font-weight: bold;
+[info] >      position: absolute;
+[info] >      /* top: 0%; */
+[info] >      left: 50%;
+[info] >      transform: translate(-50%);
+[info] >      z-index: 2;
+[info] >      width: 100%;
+[info] >      padding: 20px;
+[info] >      text-align: center;
+[info] >  }
+[info] >  
+[info] >  input[type=text], select {
+[info] >      max-width: 600px;
+[info] >      width: 80%;
+[info] >      padding: 12px 20px;
+[info] >      margin: 8px 0;
+[info] >      display: inline-block;
+[info] >      border: 1px solid #ccc;
+[info] >      border-radius: 4px;
+[info] >      box-sizing: border-box;
+[info] >  }
+[debug] [2020-02-25T10:10:30.161Z] File /Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/index.js changed, reloading triggers
+[debug] [2020-02-25T10:10:31.165Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-02-25T10:10:31.165Z] [worker-~diagnostic~-9e2f0428-75ab-43f6-83b3-48030c7e83d4]: FINISHING
+[debug] [2020-02-25T10:10:31.166Z] [worker-pool] Marking BUSY worker to finish (scraper)
+[debug] [2020-02-25T10:10:31.166Z] [worker-scraper-7499d4d5-9878-4929-9d69-c1f85adc8e37]: FINISHING
+[debug] [2020-02-25T10:10:31.172Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-02-25T10:10:31.172Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-02-25T10:10:31.172Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-02-25T10:10:31.172Z] [worker-~diagnostic~-bdb5640f-183e-4fdb-8330-9842a2320246]: Assigning socketPath: /var/folders/n1/krrhmrc50z70khp8vr9lk5b80000gn/T/fire_emu_11306.sock
+[debug] [2020-02-25T10:10:31.172Z] [worker-~diagnostic~-bdb5640f-183e-4fdb-8330-9842a2320246]: BUSY
+[debug] [2020-02-25T10:10:31.173Z] [worker-~diagnostic~-9e2f0428-75ab-43f6-83b3-48030c7e83d4]: exited
+[debug] [2020-02-25T10:10:31.173Z] [worker-~diagnostic~-9e2f0428-75ab-43f6-83b3-48030c7e83d4]: FINISHED
+[debug] [2020-02-25T10:10:31.377Z] [runtime-status] [11306] Functions runtime initialized. {"cwd":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions","node_version":"13.7.0"}
+[debug] [2020-02-25T10:10:31.378Z] [runtime-status] [11306] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-25T10:10:31.380Z] [runtime-status] [11306] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-02-25T10:10:31.380Z] [runtime-status] [11306] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:10:31.381Z] [runtime-status] [11306] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:10:31.501Z] [worker-~diagnostic~-bdb5640f-183e-4fdb-8330-9842a2320246]: IDLE
+[debug] [2020-02-25T10:10:33.474Z] [work-queue] {"queueLength":1,"workRunningCount":2}
+[debug] [2020-02-25T10:10:33.474Z] [work-queue] {"queueLength":0,"workRunningCount":3}
+[debug] [2020-02-25T10:10:33.474Z] Accepted request POST /web-app-from-scratch-f6a7f/us-central1/scraper --> scraper
+[debug] [2020-02-25T10:10:33.475Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-02-25T10:10:33.480Z] [worker-pool] addWorker(scraper)
+[debug] [2020-02-25T10:10:33.480Z] [worker-pool] Adding worker with key scraper, total=3
+[debug] [2020-02-25T10:10:33.480Z] [worker-pool] submitWork(triggerId=scraper)
+[debug] [2020-02-25T10:10:33.480Z] [worker-scraper-f3af9be9-519c-4e29-821d-ea432c741aa2]: Assigning socketPath: /var/folders/n1/krrhmrc50z70khp8vr9lk5b80000gn/T/fire_emu_11308.sock
+[debug] [2020-02-25T10:10:33.480Z] [worker-scraper-f3af9be9-519c-4e29-821d-ea432c741aa2]: BUSY
+[debug] [2020-02-25T10:10:33.746Z] [runtime-status] [11308] Functions runtime initialized. {"cwd":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions","node_version":"13.7.0"}
+[debug] [2020-02-25T10:10:33.747Z] [runtime-status] [11308] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-25T10:10:33.749Z] [runtime-status] [11308] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-02-25T10:10:33.750Z] [runtime-status] [11308] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:10:33.750Z] [runtime-status] [11308] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:10:33.889Z] [runtime-status] [11308] Trigger "scraper" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "scraper"
+[debug] [2020-02-25T10:10:33.889Z] [runtime-status] [11308] triggerDefinition {"httpsTrigger":{},"name":"scraper","entryPoint":"scraper"}
+[debug] [2020-02-25T10:10:33.889Z] [runtime-status] [11308] Running scraper in mode HTTPS
+[debug] [2020-02-25T10:10:33.893Z] [runtime-status] [11308] Attempting to listen to socketPath: /var/folders/n1/krrhmrc50z70khp8vr9lk5b80000gn/T/fire_emu_11308.sock
+[debug] [2020-02-25T10:10:33.896Z] [functions] Runtime ready! Sending request!
+[debug] [2020-02-25T10:10:33.913Z] [runtime-status] [11308] Ephemeral server handling POST request
+[debug] [2020-02-25T10:10:33.942Z] [runtime-status] [11308] Ephemeral server survived.
+[info] >  body, html {
+[info] >      height: 100%;
+[info] >      margin: 0;
+[info] >      background-image: url("../../../img/close-up-photography-of-microphone-144429.jpg");
+[info] >      height: 100%;
+[info] >      width: 100%;
+[info] >      background-position: center;
+[info] >      background-repeat: no-repeat;
+[info] >      background-size: cover;
+[info] >  }
+[info] >  
+[info] >  * {
+[info] >      box-sizing: border-box;
+[info] >      font-family: 'Montserrat'
+[info] >  }
+[info] >  
+[info] >  /* Removes the arrow in the search field */
+[info] >  
+[info] >  input::-webkit-calendar-picker-indicator {
+[info] >      display: none;
+[info] >  }
+[info] >  
+[info] >  .bg-text {
+[info] >      color: white;
+[info] >      font-weight: bold;
+[info] >      position: absolute;
+[info] >      /* top: 0%; */
+[info] >      left: 50%;
+[info] >      transform: translate(-50%);
+[info] >      z-index: 2;
+[info] >      width: 100%;
+[info] >      padding: 20px;
+[info] >      text-align: center;
+[info] >  }
+[info] >  
+[info] >  input[type=text], select {
+[info] >      max-width: 600px;
+[info] >      width: 80%;
+[info] >      padding: 12px 20px;
+[info] >      margin: 8px 0;
+[info] >      display: inline-block;
+[info] >      border: 1px solid #ccc;
+[info] >      border-radius: 4px;
+[info] >      box-sizing: border-box;
+[info] >  }
+[debug] [2020-02-25T10:10:38.932Z] [work-queue] {"queueLength":1,"workRunningCount":3}
+[debug] [2020-02-25T10:10:38.932Z] [work-queue] {"queueLength":0,"workRunningCount":4}
+[debug] [2020-02-25T10:10:38.932Z] Accepted request POST /web-app-from-scratch-f6a7f/us-central1/scraper --> scraper
+[debug] [2020-02-25T10:10:38.937Z] [worker-pool] addWorker(scraper)
+[debug] [2020-02-25T10:10:38.937Z] [worker-pool] Adding worker with key scraper, total=4
+[debug] [2020-02-25T10:10:38.937Z] [worker-pool] submitWork(triggerId=scraper)
+[debug] [2020-02-25T10:10:38.937Z] [worker-scraper-436d9bc4-052d-4b58-b299-fbe84b4fb092]: Assigning socketPath: /var/folders/n1/krrhmrc50z70khp8vr9lk5b80000gn/T/fire_emu_11312.sock
+[debug] [2020-02-25T10:10:38.938Z] [worker-scraper-436d9bc4-052d-4b58-b299-fbe84b4fb092]: BUSY
+[debug] [2020-02-25T10:10:39.189Z] [runtime-status] [11312] Functions runtime initialized. {"cwd":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions","node_version":"13.7.0"}
+[debug] [2020-02-25T10:10:39.190Z] [runtime-status] [11312] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-25T10:10:39.192Z] [runtime-status] [11312] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-02-25T10:10:39.193Z] [runtime-status] [11312] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:10:39.193Z] [runtime-status] [11312] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:10:39.329Z] [runtime-status] [11312] Trigger "scraper" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "scraper"
+[debug] [2020-02-25T10:10:39.329Z] [runtime-status] [11312] triggerDefinition {"httpsTrigger":{},"name":"scraper","entryPoint":"scraper"}
+[debug] [2020-02-25T10:10:39.329Z] [runtime-status] [11312] Running scraper in mode HTTPS
+[debug] [2020-02-25T10:10:39.332Z] [runtime-status] [11312] Attempting to listen to socketPath: /var/folders/n1/krrhmrc50z70khp8vr9lk5b80000gn/T/fire_emu_11312.sock
+[debug] [2020-02-25T10:10:39.335Z] [functions] Runtime ready! Sending request!
+[debug] [2020-02-25T10:10:39.354Z] [runtime-status] [11312] Ephemeral server handling POST request
+[debug] [2020-02-25T10:10:39.381Z] [runtime-status] [11312] Ephemeral server survived.
+[info] >  body, html {
+[info] >      height: 100%;
+[info] >      margin: 0;
+[info] >      background-image: url("../../../img/close-up-photography-of-microphone-144429.jpg");
+[info] >      height: 100%;
+[info] >      width: 100%;
+[info] >      background-position: center;
+[info] >      background-repeat: no-repeat;
+[info] >      background-size: cover;
+[info] >  }
+[info] >  
+[info] >  * {
+[info] >      box-sizing: border-box;
+[info] >      font-family: 'Montserrat'
+[info] >  }
+[info] >  
+[info] >  /* Removes the arrow in the search field */
+[info] >  
+[info] >  input::-webkit-calendar-picker-indicator {
+[info] >      display: none;
+[info] >  }
+[info] >  
+[info] >  .bg-text {
+[info] >      color: white;
+[info] >      font-weight: bold;
+[info] >      position: absolute;
+[info] >      /* top: 0%; */
+[info] >      left: 50%;
+[info] >      transform: translate(-50%);
+[info] >      z-index: 2;
+[info] >      width: 100%;
+[info] >      padding: 20px;
+[info] >      text-align: center;
+[info] >  }
+[info] >  
+[info] >  input[type=text], select {
+[info] >      max-width: 600px;
+[info] >      width: 80%;
+[info] >      padding: 12px 20px;
+[info] >      margin: 8px 0;
+[info] >      display: inline-block;
+[info] >      border: 1px solid #ccc;
+[info] >      border-radius: 4px;
+[info] >      box-sizing: border-box;
+[info] >  }
+[debug] [2020-02-25T10:11:07.707Z] [work-queue] {"queueLength":1,"workRunningCount":4}
+[debug] [2020-02-25T10:11:07.707Z] [work-queue] {"queueLength":0,"workRunningCount":5}
+[debug] [2020-02-25T10:11:07.707Z] Accepted request POST /web-app-from-scratch-f6a7f/us-central1/scraper --> scraper
+[debug] [2020-02-25T10:11:07.711Z] [worker-pool] addWorker(scraper)
+[debug] [2020-02-25T10:11:07.711Z] [worker-pool] Adding worker with key scraper, total=5
+[debug] [2020-02-25T10:11:07.711Z] [worker-pool] submitWork(triggerId=scraper)
+[debug] [2020-02-25T10:11:07.711Z] [worker-scraper-30f9a1e8-b2f8-4a08-b754-d4fa5c59c094]: Assigning socketPath: /var/folders/n1/krrhmrc50z70khp8vr9lk5b80000gn/T/fire_emu_11318.sock
+[debug] [2020-02-25T10:11:07.711Z] [worker-scraper-30f9a1e8-b2f8-4a08-b754-d4fa5c59c094]: BUSY
+[debug] [2020-02-25T10:11:07.940Z] [runtime-status] [11318] Functions runtime initialized. {"cwd":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions","node_version":"13.7.0"}
+[debug] [2020-02-25T10:11:07.941Z] [runtime-status] [11318] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-25T10:11:07.943Z] [runtime-status] [11318] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-02-25T10:11:07.944Z] [runtime-status] [11318] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:11:07.944Z] [runtime-status] [11318] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:11:08.083Z] [runtime-status] [11318] Trigger "scraper" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "scraper"
+[debug] [2020-02-25T10:11:08.083Z] [runtime-status] [11318] triggerDefinition {"httpsTrigger":{},"name":"scraper","entryPoint":"scraper"}
+[debug] [2020-02-25T10:11:08.083Z] [runtime-status] [11318] Running scraper in mode HTTPS
+[debug] [2020-02-25T10:11:08.086Z] [runtime-status] [11318] Attempting to listen to socketPath: /var/folders/n1/krrhmrc50z70khp8vr9lk5b80000gn/T/fire_emu_11318.sock
+[debug] [2020-02-25T10:11:08.088Z] [functions] Runtime ready! Sending request!
+[debug] [2020-02-25T10:11:08.104Z] [runtime-status] [11318] Ephemeral server handling POST request
+[debug] [2020-02-25T10:11:08.132Z] [runtime-status] [11318] Ephemeral server survived.
+[info] >  body, html {
+[info] >      height: 100%;
+[info] >      margin: 0;
+[info] >      background-image: url("../../../img/close-up-photography-of-microphone-144429.jpg");
+[info] >      height: 100%;
+[info] >      width: 100%;
+[info] >      background-position: center;
+[info] >      background-repeat: no-repeat;
+[info] >      background-size: cover;
+[info] >  }
+[info] >  
+[info] >  * {
+[info] >      box-sizing: border-box;
+[info] >      font-family: 'Montserrat'
+[info] >  }
+[info] >  
+[info] >  /* Removes the arrow in the search field */
+[info] >  
+[info] >  input::-webkit-calendar-picker-indicator {
+[info] >      display: none;
+[info] >  }
+[info] >  
+[info] >  .bg-text {
+[info] >      color: white;
+[info] >      font-weight: bold;
+[info] >      position: absolute;
+[info] >      /* top: 0%; */
+[info] >      left: 50%;
+[info] >      transform: translate(-50%);
+[info] >      z-index: 2;
+[info] >      width: 100%;
+[info] >      padding: 20px;
+[info] >      text-align: center;
+[info] >  }
+[info] >  
+[info] >  input[type=text], select {
+[info] >      max-width: 600px;
+[info] >      width: 80%;
+[info] >      padding: 12px 20px;
+[info] >      margin: 8px 0;
+[info] >      display: inline-block;
+[info] >      border: 1px solid #ccc;
+[info] >      border-radius: 4px;
+[info] >      box-sizing: border-box;
+[info] >  }
+[debug] [2020-02-25T10:20:11.780Z] File /Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/index.js changed, reloading triggers
+[debug] [2020-02-25T10:20:12.783Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-02-25T10:20:12.784Z] [worker-~diagnostic~-bdb5640f-183e-4fdb-8330-9842a2320246]: FINISHING
+[debug] [2020-02-25T10:20:12.784Z] [worker-pool] Marking BUSY worker to finish (scraper)
+[debug] [2020-02-25T10:20:12.784Z] [worker-scraper-f3af9be9-519c-4e29-821d-ea432c741aa2]: FINISHING
+[debug] [2020-02-25T10:20:12.784Z] [worker-pool] Marking BUSY worker to finish (scraper)
+[debug] [2020-02-25T10:20:12.784Z] [worker-scraper-436d9bc4-052d-4b58-b299-fbe84b4fb092]: FINISHING
+[debug] [2020-02-25T10:20:12.784Z] [worker-pool] Marking BUSY worker to finish (scraper)
+[debug] [2020-02-25T10:20:12.784Z] [worker-scraper-30f9a1e8-b2f8-4a08-b754-d4fa5c59c094]: FINISHING
+[debug] [2020-02-25T10:20:12.790Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-02-25T10:20:12.790Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-02-25T10:20:12.790Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-02-25T10:20:12.790Z] [worker-~diagnostic~-5480f7dc-f12b-42de-bde9-0c868eb0d66e]: Assigning socketPath: /var/folders/n1/krrhmrc50z70khp8vr9lk5b80000gn/T/fire_emu_11387.sock
+[debug] [2020-02-25T10:20:12.790Z] [worker-~diagnostic~-5480f7dc-f12b-42de-bde9-0c868eb0d66e]: BUSY
+[debug] [2020-02-25T10:20:12.791Z] [worker-~diagnostic~-bdb5640f-183e-4fdb-8330-9842a2320246]: exited
+[debug] [2020-02-25T10:20:12.791Z] [worker-~diagnostic~-bdb5640f-183e-4fdb-8330-9842a2320246]: FINISHED
+[debug] [2020-02-25T10:20:12.999Z] [runtime-status] [11387] Functions runtime initialized. {"cwd":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions","node_version":"13.7.0"}
+[debug] [2020-02-25T10:20:13.000Z] [runtime-status] [11387] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-25T10:20:13.002Z] [runtime-status] [11387] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-02-25T10:20:13.002Z] [runtime-status] [11387] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:20:13.003Z] [runtime-status] [11387] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:20:13.128Z] [worker-~diagnostic~-5480f7dc-f12b-42de-bde9-0c868eb0d66e]: IDLE
+[debug] [2020-02-25T10:20:19.504Z] File /Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/index.js changed, reloading triggers
+[debug] [2020-02-25T10:20:20.506Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-02-25T10:20:20.506Z] [worker-~diagnostic~-5480f7dc-f12b-42de-bde9-0c868eb0d66e]: FINISHING
+[debug] [2020-02-25T10:20:20.506Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-02-25T10:20:20.512Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-02-25T10:20:20.512Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-02-25T10:20:20.512Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-02-25T10:20:20.512Z] [worker-~diagnostic~-e10cd285-de78-4cc1-a6b7-e7e7fd3ac44f]: Assigning socketPath: /var/folders/n1/krrhmrc50z70khp8vr9lk5b80000gn/T/fire_emu_11391.sock
+[debug] [2020-02-25T10:20:20.512Z] [worker-~diagnostic~-e10cd285-de78-4cc1-a6b7-e7e7fd3ac44f]: BUSY
+[debug] [2020-02-25T10:20:20.513Z] [worker-~diagnostic~-5480f7dc-f12b-42de-bde9-0c868eb0d66e]: exited
+[debug] [2020-02-25T10:20:20.513Z] [worker-~diagnostic~-5480f7dc-f12b-42de-bde9-0c868eb0d66e]: FINISHED
+[debug] [2020-02-25T10:20:20.766Z] [runtime-status] [11391] Functions runtime initialized. {"cwd":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions","node_version":"13.7.0"}
+[debug] [2020-02-25T10:20:20.768Z] [runtime-status] [11391] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-25T10:20:20.769Z] [runtime-status] [11391] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-02-25T10:20:20.770Z] [runtime-status] [11391] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:20:20.771Z] [runtime-status] [11391] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-25T10:20:20.896Z] [worker-~diagnostic~-e10cd285-de78-4cc1-a6b7-e7e7fd3ac44f]: IDLE

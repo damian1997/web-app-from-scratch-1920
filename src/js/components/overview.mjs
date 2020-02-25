@@ -12,7 +12,8 @@ import { renderComponent, createVirtualElement, updateComponent } from '../virtu
 export default class Overview extends BaseComponent {
 	constructor(props) {
 		super(props)
-		this.state.results = []
+		this.state.results = [
+		]
 		this.overviewCard = new overviewCard()
 	}
 

@@ -1,5 +1,4 @@
 import { getForkers, getCommits, getIssues } from './components/api'
-import { readStorage, clearStorage, addLocalstorageEntry } from './components/localstorage'
 import { cleanGithubData, sortCommits } from './components/data'
 
 import Routie from './libraries/routie'
@@ -7,9 +6,10 @@ import Routie from './libraries/routie'
 import Component from './components/baseComponent.mjs'
 import Header from './components/header.mjs'
 import Overview from './components/overview.mjs'
+import Detail from './components/detail.mjs'
+import Router from './components/router.mjs'
 
 import { createVirtualElement, renderElementToHTML, renderComponent, diff, } from './virtualdom/virtualdom.mjs'
-
 
 export default class App extends Component {
 	constructor(props) {
@@ -17,6 +17,7 @@ export default class App extends Component {
 		this.getResults = this.getResults.bind(this)
 		this.header = new Header({ getResults: this.getResults.bind() })
 		this.overview = new Overview()
+		this.detail = new Detail()
 		this.state.results = []
 	}
 
@@ -47,7 +48,8 @@ export default class App extends Component {
 				this.header.createVirtualComponent(this.header.props,this.header.state),
 				createVirtualElement('main', {
 					children: [
-						this.overview.createVirtualComponent(props, state)
+						this.detail.createVirtualComponent({commitid: 'meessour&web-app-from-scratch-1920&commits&749c2c955eeaaaf3593e78932fd111c121552294'}, state)
+						//this.overview.createVirtualComponent(props, state)
 					]
 				})
 			]
@@ -55,18 +57,20 @@ export default class App extends Component {
 	}
 }
 
+async function foo () {
+	const res = await fetch('http://localhost:5000/web-app-from-scratch-f6a7f/us-central1/scraper', { 
+		method: 'POST', 
+		body: JSON.stringify('https://raw.githubusercontent.com/meessour/web-app-from-scratch-1920/749c2c955eeaaaf3593e78932fd111c121552294/week-2/public/css/styles.css') 
+	});
+	
+	const data = await res.json();
+	console.log(data)
+}
+
+foo()
+
 const render = (virtualNode, parent) => {
 	diff(undefined, undefined, virtualNode, parent)
 }
 
 render(createVirtualElement(App),document.body)
-
-Routie({
-	'': function() {
-		console.log('base route')
-	},
-	'commit/:id': function(id) {
-		console.log(App)
-		console.log('id route')
-	}
-})

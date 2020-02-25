@@ -51,18 +51,17 @@ export function renderElementToHTML(virtualElement) {
 		for(const [event, callback] of Object.entries(events)) {
 			$element.addEventListener(event, callback)
 		}
-	} else if(typeof tagName === 'function') {
+	} else if(typeof tagName === 'function' || typeof tagName === 'object') {
 		// Initiate the component
 		const component = new tagName(attributes)
 		const renderedComponent = component.createVirtualComponent(component.props, component.state)
 		
 		$element = renderElementToHTML(renderedComponent)
-		
 		// Save DOM reference in base field
 		component.base = $element
 		component.virtualElement = renderedComponent
 	}
-	
+		
 	// Recursively render this for all its children
 	(children || []).forEach(child => $element.appendChild(renderElementToHTML(child)))
 	return $element
@@ -101,7 +100,7 @@ export function diff($element, virtualOldElement, virtualNewElement, parent) {
 				return $newNode
 			} else return $element
 		} 
-
+		
 		if(virtualOldElement.tagName !== virtualNewElement.tagName) {
 			if(typeof virtualNewElement.tagName === 'function') {
 				const component = new virtualNewElement.tagName(virtualNewElement.props)
@@ -126,6 +125,7 @@ export function diff($element, virtualOldElement, virtualNewElement, parent) {
 
 		return $element
 	} else {
+		(!parent) ? parent = document.body : console.log('Parent has been set')
 		const newDom = renderElementToHTML(virtualNewElement)
 		parent.appendChild(newDom)
 		return newDom 
