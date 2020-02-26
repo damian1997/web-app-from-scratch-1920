@@ -36,7 +36,7 @@ export default class App extends Component {
 			.then(async (entrys) => {
 				return await sortCommits(entrys)
 			})
-	
+
 		this.setState({results: cleanedForkers, page: this.state.page})
 	}
 
@@ -48,7 +48,7 @@ export default class App extends Component {
 		})
 
 		const data = await res.json()
-		
+
 		this.setState({detailresults: data, page: this.state.page, results: this.state.results})
 	}
 
