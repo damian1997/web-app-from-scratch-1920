@@ -56,7 +56,7 @@ const res = await fetch('http://localhost:5000/web-app-from-scratch-f6a7f/us-cen
 })
 ```
 
-Now firebase is run on localhost and you can make use of the html scraper.
+Now your project dev server and the firebase server is running on localhost and you can make use of the html scraper.
 
 ### Packages
 This project makes use of the following packages and technologies:
