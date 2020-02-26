@@ -20,11 +20,13 @@ const scrapeMetatags = (text) => {
 				const res = await fetch(file.raw_url)
 
 				const commitContents = await res.text()
-				return { filename: file.filename, filecontents: commitContents, patch: file.patch }
+				const commitContentssplit = commitContents.split(/\n/)
+
+				return { filename: file.filename, filecontents: commitContentssplit, patch: file.patch }
 			} else if(file.filename.includes('.svg')){
 				return { filename: file.filename, commitFile: 'image', imagePath: file.raw_url}
 			} else {
-				return { filename: file.filename, commitFile: 'image' }
+				return { filename: file.filename, commitFile: 'image', imagePath: file.raw_url }
 			}
 		})
 

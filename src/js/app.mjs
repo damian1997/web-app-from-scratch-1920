@@ -48,9 +48,8 @@ export default class App extends Component {
 		})
 
 		const data = await res.json()
-		console.log(data)
 		
-		this.setState({results: data, page: this.state.page})
+		this.setState({detailresults: data, page: this.state.page, results: this.state.results})
 	}
 
 	changePage(page, id = undefined) {
@@ -62,6 +61,7 @@ export default class App extends Component {
 	}
 
 	createVirtualComponent(props,state) {
+		console.log(state)
 		return createVirtualElement('div', {
 			attributes: {
 				class: 'app'

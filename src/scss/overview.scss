@@ -68,7 +68,18 @@
 
 			> div {
 				border-bottom: 1px solid var(--grey-medium);
-				padding: 15px 0 15px;
+
+				a {
+					display: block;
+					padding: 15px 0 15px;
+
+					text-decoration: none;
+					color: var(--primary-color);
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
 
 				p {
 					margin: 0;

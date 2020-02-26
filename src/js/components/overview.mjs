@@ -20,7 +20,6 @@ export default class Overview extends BaseComponent {
 
 	createVirtualComponent(props,state) {
 		if(state.results.length) {
-			console.log(state.results)
 			return createVirtualElement('section', {
 				attributes: {
 					class: 'forker-overview'
