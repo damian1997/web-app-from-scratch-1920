@@ -11,6 +11,8 @@ Repository for the Web app from scratch course.
 	* [Actor diagram](#actor-diagram)
 	* [Interaction diagram](#interaction-diagram)
 * [UI Design](#ui-design)
+* [Sources](#sources)
+* [Honourable mentions](#honourable-mentions)
 * [License](#license)
 
 ## Description
@@ -345,6 +347,9 @@ Commit detail page
 ## Sources
 * [MDN](https://developer.mozilla.org/nl/)
 * [Github Api documentation](https://developer.github.com/v3/)
+
+## Honourable mentions
+Special thanks to [Thijs](https://github.com/iSirThijs/web-app-from-scratch-1920) who was of huge help with building the virtualdom and getting my head wrapped around the concept of a vdom.
 
 ## License
 [MIT License](https://github.com/damian1997/web-app-from-scratch-1920/blob/master/LICENSE) [Damian1997](https://github.com/damian1997)
