@@ -3,3 +3,4 @@ dist
 notes.md
 .DS_Store
 tags
+function/firebase-debug.log
