@@ -37,23 +37,23 @@ npm run prod
 ### Installing firebase microservices localy
 For this project i have written a html scraper that is hosted on firebase, to test this localy follow the following steps.
 
-Type the folowing in your terminal when you are in your project repository.
+Type the folowing in your terminal when you are in your local project repository.
 ```
 cd functions
 npm install
 ```
 
-To run the microservice on localhost tye the following when you are inside the functions directory.
+To run the microservice on localhost type the following when you are inside the functions directory.
 ```
 npm run serve
 ```
 
 If you have assigned a different name to your local repository you have to change the fetch url inside app.mjs.
 ```javascript
-		const res = await fetch('http://localhost:5000/web-app-from-scratch-f6a7f/us-central1/scraper', {
-			method: 'POST',
-			body: JSON.stringify(`https://api.github.com/repos/${splitstr[0]}/${splitstr[1]}/commits/${splitstr[2]}`)
-		})
+const res = await fetch('http://localhost:5000/web-app-from-scratch-f6a7f/us-central1/scraper', {
+	method: 'POST',
+	body: JSON.stringify(`https://api.github.com/repos/${splitstr[0]}/${splitstr[1]}/commits/${splitstr[2]}`)
+})
 ```
 
 Now firebase is run on localhost and you can make use of the html scraper.
