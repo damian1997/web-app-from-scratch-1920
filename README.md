@@ -346,6 +346,11 @@ Commit detail page
 
 ## Sources
 * [MDN](https://developer.mozilla.org/nl/)
+* [Firebase](https://firebase.google.com/docs)
+* [Fireship html scrapper](https://fireship.io/lessons/web-scraping-guide/)
+* [Vdom diffing](https://dev.to/ycmjason/building-a-simple-virtual-dom-from-scratch-3d05)
+* [Vdom based on modules](https://medium.com/@aibolkussain/create-your-own-virtual-dom-to-understand-it-part-1-47b9b6fc6dfb)
+* [Vdom based on modules pt.2](https://medium.com/@aibolkussain/create-your-own-virtual-dom-to-understand-it-part-2-c85c4ffd15f0)
 * [Github Api documentation](https://developer.github.com/v3/)
 
 ## Honourable mentions
