@@ -323,16 +323,16 @@ Actor diagram to visualize the components of the application
 
 ### Flow diagram
 
-### Main diagram
+#### Main diagram
 The diagram for visualizing the flow of the application
 
 <img src="./src/images/github/flowdiagram/maindiagram.png">
 
-### Api process
+#### Api process
 
 <img src="./src/images/github/flowdiagram/apidiagram.png">
 
-### HTML scraper microservice process
+#### HTML scraper microservice process
 
 <img src="./src/images/github/flowdiagram/scraperdiagram.png">
 
