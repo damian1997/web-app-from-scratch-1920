@@ -318,12 +318,15 @@ After fetching everyone who forked the repo we go and fetch all the commits they
 ## How it works
 ### Actor diagram
 The main diagram for visualizing the flow of the application
+
 <img src="./src/images/github/flowdiagram/maindiagram.png">
 
 Api process
+
 <img src="./src/images/github/flowdiagram/apidiagram.png">
 
 HTML scraper microservice process
+
 <img src="./src/images/github/flowdiagram/scraperdiagram.png">
 
 ### Flow diagram
