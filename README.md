@@ -317,6 +317,11 @@ After fetching everyone who forked the repo we go and fetch all the commits they
 
 ## How it works
 ### Actor diagram
+Actor diagram to visualize the components of the application
+
+<img src="./src/images/github/actordiagram-v2.png">
+
+### Flow diagram
 The main diagram for visualizing the flow of the application
 
 <img src="./src/images/github/flowdiagram/maindiagram.png">
@@ -329,8 +334,6 @@ HTML scraper microservice process
 
 <img src="./src/images/github/flowdiagram/scraperdiagram.png">
 
-### Flow diagram
-<img src="./src/images/github/flowdiagram-wafs.jpg">
 
 ## UI Design
 
