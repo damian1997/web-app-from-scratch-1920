@@ -14,7 +14,7 @@ module.exports = merge(common,{
     mode: 'production',
     output: {
         filename: '[name]-[contentHash].bundle.js',
-        path: parsePath.dir + '/dist'
+        path: parsePath.dir + '/docs'
     },
     module: {
       rules: [
