@@ -295,3 +295,21 @@
 [debug] [2020-02-27T11:31:07.790Z] [runtime-status] [40372] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
 [debug] [2020-02-27T11:31:07.790Z] [runtime-status] [40372] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
 [debug] [2020-02-27T11:31:07.919Z] [worker-~diagnostic~-76023e21-f61b-4879-9f68-78871eda2fe4]: IDLE
+[debug] [2020-02-27T12:47:39.597Z] File /Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/index.js changed, reloading triggers
+[debug] [2020-02-27T12:47:40.600Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-02-27T12:47:40.600Z] [worker-~diagnostic~-76023e21-f61b-4879-9f68-78871eda2fe4]: FINISHING
+[debug] [2020-02-27T12:47:40.600Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2020-02-27T12:47:40.600Z] [worker-pool] Cleaned up workers for scraper: 1 --> 0
+[debug] [2020-02-27T12:47:40.606Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-02-27T12:47:40.606Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-02-27T12:47:40.606Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-02-27T12:47:40.606Z] [worker-~diagnostic~-22358a9c-423e-4ea1-9567-e5b08efe7943]: Assigning socketPath: /var/folders/n1/krrhmrc50z70khp8vr9lk5b80000gn/T/fire_emu_41329.sock
+[debug] [2020-02-27T12:47:40.606Z] [worker-~diagnostic~-22358a9c-423e-4ea1-9567-e5b08efe7943]: BUSY
+[debug] [2020-02-27T12:47:40.607Z] [worker-~diagnostic~-76023e21-f61b-4879-9f68-78871eda2fe4]: exited
+[debug] [2020-02-27T12:47:40.607Z] [worker-~diagnostic~-76023e21-f61b-4879-9f68-78871eda2fe4]: FINISHED
+[debug] [2020-02-27T12:47:40.842Z] [runtime-status] [41329] Functions runtime initialized. {"cwd":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions","node_version":"12.16.1"}
+[debug] [2020-02-27T12:47:40.843Z] [runtime-status] [41329] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-27T12:47:40.845Z] [runtime-status] [41329] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.2","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-02-27T12:47:40.846Z] [runtime-status] [41329] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-27T12:47:40.846Z] [runtime-status] [41329] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/damianveltkamp/Documents/development/web-app-from-scratch-1920/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-02-27T12:47:40.973Z] [worker-~diagnostic~-22358a9c-423e-4ea1-9567-e5b08efe7943]: IDLE
