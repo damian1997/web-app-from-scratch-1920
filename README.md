@@ -3,6 +3,7 @@ Repository for the Web app from scratch course.
 
 [Demo](https://pensive-edison-bc4991.netlify.com/)
 
+* [TODO](#todo)
 * [Description](#description)
 * [Installing](#installing)
 	* [Packages](#packages)
@@ -14,6 +15,12 @@ Repository for the Web app from scratch course.
 * [Sources](#sources)
 * [Honourable mentions](#honourable-mentions)
 * [License](#license)
+
+## TODO
+* Fix cors issue when trying to fetch scraper microservice from firebase
+* Refactor microservice code
+* Refactor detail component to use a detailcard component
+* Remove unneeded code and files
 
 ## Description
 With this application you can get insight into who has forked your repository and if they have done any work on your project.

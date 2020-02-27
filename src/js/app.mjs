@@ -50,6 +50,9 @@ export default class App extends Component {
 			method: 'POST', 
 			body: JSON.stringify(`https://api.github.com/repos/${splitstr[0]}/${splitstr[1]}/commits/${splitstr[2]}`) 
 		})
+    .catch((err) => {
+      console.log('Something when wrong when fetching firebase function ', err)
+    })
 
 		const data = await res.json()
 
