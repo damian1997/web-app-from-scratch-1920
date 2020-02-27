@@ -22,6 +22,10 @@ export default class App extends Component {
 	}
 
 	async getResults({search}) {
+    const loading = document.getElementById('loading')
+    loading.classList.add('show')
+    loading.classList.remove('hide')
+
 		const apiBaseUrl = 'https://api.github.com/repos'
 		const split_string = search.split('https://github.com/')	
 		const finalstring = split_string[1].split('/')
@@ -61,7 +65,6 @@ export default class App extends Component {
 	}
 
 	createVirtualComponent(props,state) {
-		console.log(state)
 		return createVirtualElement('div', {
 			attributes: {
 				class: 'app'
@@ -70,6 +73,9 @@ export default class App extends Component {
 				this.header.createVirtualComponent(this.header.props,this.header.state),
 				createVirtualElement('main', {
 					children: [
+            createVirtualElement('div', {
+              attributes: { id: 'loading', class: 'loading-container hide' },
+            }),
 						state.page.createVirtualComponent(state.page.props, this.state)
 					]
 				})

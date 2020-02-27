@@ -37,7 +37,7 @@ export default class Overview extends BaseComponent {
 				},
 				children: [
 					createVirtualElement('h2', {
-						children: ['Nothing found']
+						children: ['Search to find results']
 					})
 				]
 			})

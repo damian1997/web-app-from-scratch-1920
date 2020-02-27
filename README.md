@@ -317,7 +317,7 @@ After fetching everyone who forked the repo we go and fetch all the commits they
 
 ## How it works
 ### Actor diagram
-<img src="./src/images/github/actordiagram-wafs.jpg">
+<img src="./src/images/github/actordiagram-v2.png">
 
 ### Flow diagram
 <img src="./src/images/github/flowdiagram-wafs.jpg">
