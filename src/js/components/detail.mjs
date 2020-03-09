@@ -19,7 +19,6 @@ export default class Detail extends Component {
 	}
 
 	createVirtualComponent(props, state) {
-		console.log(state.detailresults[0])
 		if(state.detailresults.length) {
 			return createVirtualElement('section', {
 				attributes: { class: 'detail' },

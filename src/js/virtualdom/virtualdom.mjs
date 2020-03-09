@@ -129,7 +129,6 @@ function zip(xs, ys) {
   for (let i = 0; i < Math.min(xs.length, ys.length); i++) {
     zipped.push([xs[i], ys[i]])
   }
-  console.log(zipped)
   return zipped
 }
 
@@ -174,7 +173,6 @@ function diffChildren(oldVirtualChildren, newVirtualChildren) {
 			return $node;
 		});
 	}
-  console.log(additionalPatches)
 	return $parent => {
 		for (const patch of additionalPatches){
 			patch($parent);
