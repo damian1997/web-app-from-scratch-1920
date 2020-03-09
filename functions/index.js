@@ -39,6 +39,9 @@ const scrapeMetatags = (text) => {
 
 exports.scraper = functions.https.onRequest( async (request, response) => {
 	cors(request, response, async () => {
+    response.header('Access-Control-Allow-Origin', '*')
+    reponse.header('Access-Control-Allow-Headers', '*')
+
 		const body = JSON.parse(request.body);
 
 		const data = await scrapeMetatags(body);
@@ -46,3 +49,4 @@ exports.scraper = functions.https.onRequest( async (request, response) => {
 		response.send(data)
 	});
 });
+

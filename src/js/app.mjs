@@ -46,7 +46,7 @@ export default class App extends Component {
 
 	async scraper(id) {
 		const splitstr = id.split('&')
-		const res = await fetch('http://localhost:5000/web-app-from-scratch-f6a7f/us-central1/scraper', { 
+		const res = await fetch('https://us-central1-web-app-from-scratch-f6a7f.cloudfunctions.net/scraper', { 
 			method: 'POST', 
 			body: JSON.stringify(`https://api.github.com/repos/${splitstr[0]}/${splitstr[1]}/commits/${splitstr[2]}`) 
 		})
